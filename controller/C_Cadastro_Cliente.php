@@ -24,5 +24,9 @@
 	//Realizar Operação
 	$funcDAO = new ClienteDAO();
 	$funcDAO->cadastrar($link, $f1);
+<<<<<<< HEAD
         header('Location:../view/login.php');
+=======
+        header('Location:../view/login.html');
+>>>>>>> e5d3df8aae9090f255e65f1d59007f189b6d850c
 ?>

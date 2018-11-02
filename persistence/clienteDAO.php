@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 	session_start();
+=======
+>>>>>>> e5d3df8aae9090f255e65f1d59007f189b6d850c
 	include_once("../model/cliente.php");
 	
 	class ClienteDAO{
@@ -26,6 +29,7 @@
 			}
 		}
                 
+<<<<<<< HEAD
 		function consultarLogin($link, $email, $senha){
 			$select = "SELECT * FROM cliente WHERE email = '".$email."' AND senha = '".$senha."'";
 			$verifica = mysqli_query($link, $select);
@@ -40,6 +44,21 @@
 				$_SESSION["login"] = $result[1];
 				header("Location:../view/index.php");
 			}
+=======
+                function consultarLogin($link, $email, $senha){
+                    $select = "SELECT * FROM cliente WHERE email = '".$email."' AND senha = '".$senha."'";
+                    $verifica = mysqli_query($link, $select);
+                    if(!$verifica){
+                        die("Erro ao procurar login".mysqli_error($link));
+                    }
+                    if (mysqli_num_rows($verifica)<=0){
+                      echo"<script language='javascript' type='text/javascript'>window.location.href='../view/login.html';window.alert('Usuario ou senha invalido(s)');</script>";
+                      die();
+                    }else{
+                      setcookie("login",$email);
+                      header("Location:../view/index.html");
+                    }
+>>>>>>> e5d3df8aae9090f255e65f1d59007f189b6d850c
 		}
                 
 		function alterar(){
