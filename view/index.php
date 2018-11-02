@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -26,13 +29,12 @@
 
 <body>
 	<header id="header"><!--header-->
-		
 	<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="icone" src="images/book-icon.png" alt="" />
+							<a href="index.php"><img class="icone" src="images/book-icon.png" alt="" />
                                                             <span class="fa titulo"> Livraria </span>
                                                         </a>
 						</div>
@@ -40,11 +42,23 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-                                                                <li><a href="conta.html"><i class="fa fa-user"></i> Conta</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-                                                                <li><a href="admin.html"><i class="fa fa-lock"></i> Admin</a></li>
-                                                                <li><a href="cadastrarLivro.html"><i class="fa fa-lock"></i> Cadastrar Livro</a></li>
+							<?php
+								if(isset($_SESSION["login"])){
+									$nome = $_SESSION["login"];
+									echo "<li><a href='conta.php'><i class='fa fa-user'></i>".$nome."</a></li>";
+									echo "<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Carrinho</a></li>";
+								} else {
+									if(isset($_SESSION["admin"])){
+										echo "<li><a href='cadastrarLivro.php'><i class='fa fa-lock'></i> Cadastrar Livro</a></li>";
+									} else {
+										echo "<li><a href='login.php'><i class='fa fa-lock'></i> Login</a></li>";
+										echo "<li><a href='admin.php'><i class='fa fa-lock'></i> Admin</a></li>";
+									}
+								}
+								if((isset($_SESSION["login"])) or (isset($_SESSION["admin"]))){
+									echo "<li><a href='sair.php'><i class='fa fa-user'></i> Sair</a></li>";
+								}
+							?>
 							</ul>
 						</div>
 					</div>
@@ -87,13 +101,13 @@
 											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
 											<h2>R$ 50,00</h2>
 											<p>Livro 1</p>
-											<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>R$ 50,00</h2>
 												<p>Livro 1</p>
-												<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 											</div>
 										</div>
 								</div>
@@ -106,13 +120,13 @@
 											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
 											<h2>R$ 50,00</h2>
 											<p>Livro 2</p>
-											<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>R$ 50,00</h2>
 												<p>Livro 2</p>
-												<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 											</div>
 										</div>
 								</div>
@@ -125,13 +139,13 @@
 											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
 											<h2>R$ 50,00</h2>
 											<p>Livro 3</p>
-											<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>R$ 50,00</h2>
 												<p>Livro 3</p>
-												<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 											</div>
 										</div>
 								</div>
@@ -144,13 +158,13 @@
 											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
 											<h2>R$ 50,00</h2>
 											<p>Livro 4</p>
-											<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>R$ 50,00</h2>
 												<p>Livro 4</p>
-												<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 											</div>
 										</div>
 								</div>
@@ -163,13 +177,13 @@
 											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
 											<h2>R$ 50,00</h2>
 											<p>Livro 5</p>
-											<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>R$ 50,00</h2>
 												<p>Livro 5</p>
-												<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
+												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
 											</div>
 										</div>
 								</div>

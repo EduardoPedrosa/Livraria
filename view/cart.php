@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -25,14 +28,13 @@
 </head><!--/head-->
 
 <body>
-	<header id="header"><!--header-->
-		
+<header id="header"><!--header-->
 	<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="icone" src="images/book-icon.png" alt="" />
+							<a href="index.php"><img class="icone" src="images/book-icon.png" alt="" />
                                                             <span class="fa titulo"> Livraria </span>
                                                         </a>
 						</div>
@@ -40,11 +42,23 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-                                                                <li><a href="conta.html"><i class="fa fa-user"></i> Conta</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-                                                                <li><a href="admin.html"><i class="fa fa-lock"></i> Admin</a></li>
-                                                                <li><a href="cadastrarLivro.html"><i class="fa fa-lock"></i> Cadastrar Livro</a></li>
+							<?php
+								if(isset($_SESSION["login"])){
+									$nome = $_SESSION["login"];
+									echo "<li><a href='conta.php'><i class='fa fa-user'></i>".$nome."</a></li>";
+									echo "<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Carrinho</a></li>";
+								} else {
+									if(isset($_SESSION["admin"])){
+										echo "<li><a href='cadastrarLivro.php'><i class='fa fa-lock'></i> Cadastrar Livro</a></li>";
+									} else {
+										echo "<li><a href='login.php'><i class='fa fa-lock'></i> Login</a></li>";
+										echo "<li><a href='admin.php'><i class='fa fa-lock'></i> Admin</a></li>";
+									}
+								}
+								if((isset($_SESSION["login"])) or (isset($_SESSION["admin"]))){
+									echo "<li><a href='sair.php'><i class='fa fa-user'></i> Sair</a></li>";
+								}
+							?>
 							</ul>
 						</div>
 					</div>
@@ -65,6 +79,11 @@
 							</button>
 						</div>
 					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div><!--/header-bottom-->
@@ -74,7 +93,7 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="index.html">Início</a></li>
+				  <li><a href="index.php">Início</a></li>
 				  <li class="active">Carrinho de compras</li>
 				</ol>
 			</div>
@@ -159,7 +178,7 @@
 							<li>Frete <span>R$ 10,00</span></li>
 							<li>Total <span>$ 110,00</span></li>
 						</ul>
-							<a class="btn btn-default update" href="pagamento.html">Seguir compra</a>
+							<a class="btn btn-default update" href="pagamento.php">Seguir compra</a>
 					</div>
 				</div>
 			</div>

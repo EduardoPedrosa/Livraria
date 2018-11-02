@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -25,14 +28,13 @@
 </head><!--/head-->
 
 <body>
-	<header id="header"><!--header-->
-		
+<header id="header"><!--header-->
 	<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="icone" src="images/book-icon.png" alt="" />
+							<a href="index.php"><img class="icone" src="images/book-icon.png" alt="" />
                                                             <span class="fa titulo"> Livraria </span>
                                                         </a>
 						</div>
@@ -40,11 +42,23 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-                                                                <li><a href="conta.html"><i class="fa fa-user"></i> Conta</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-                                                                <li><a href="admin.html"><i class="fa fa-lock"></i> Admin</a></li>
-                                                                <li><a href="cadastrarLivro.html"><i class="fa fa-lock"></i> Cadastrar Livro</a></li>
+							<?php
+								if(isset($_SESSION["login"])){
+									$nome = $_SESSION["login"];
+									echo "<li><a href='conta.php'><i class='fa fa-user'></i>".$nome."</a></li>";
+									echo "<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Carrinho</a></li>";
+								} else {
+									if(isset($_SESSION["admin"])){
+										echo "<li><a href='cadastrarLivro.php'><i class='fa fa-lock'></i> Cadastrar Livro</a></li>";
+									} else {
+										echo "<li><a href='login.php'><i class='fa fa-lock'></i> Login</a></li>";
+										echo "<li><a href='admin.php'><i class='fa fa-lock'></i> Admin</a></li>";
+									}
+								}
+								if((isset($_SESSION["login"])) or (isset($_SESSION["admin"]))){
+									echo "<li><a href='sair.php'><i class='fa fa-user'></i> Sair</a></li>";
+								}
+							?>
 							</ul>
 						</div>
 					</div>
@@ -54,13 +68,6 @@
 	
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
-                                <div class="breadcrumbs">
-                                        <ol class="breadcrumb">
-                                          <li><a href="index.html">Início</a></li>
-                                          <li><a href="cart.html">Carrinho de compras</a></li>
-                                          <li class="active">Finalizando compra</li>
-                                        </ol>
-                                </div>
 				<div class="row">
 					<div class="col-sm-9">
 						<div class="navbar-header">
@@ -70,6 +77,11 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
 						</div>
 					</div>
 				</div>
@@ -82,20 +94,39 @@
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>Preencha as informações do cartão</h2>
-						<form action="#">
-							<input type="text" name="NumCartao" placeholder="Numero do cartão" />
-                                                        <input type="text" name="NomCartao" placeholder="Nome impresso no cartão" />
-                                                        <input type="text" name="CodigoSeguranca" placeholder="Codigo de segurança" />  
-                                                        <input type="number" min="1" name="NumParcelas" placeholder="Número de parcelas" />
-							<button type="submit" class="btn btn-default">Pagar com cartão</button>
+						<h2>Entre em sua conta</h2>
+						<form action="../controller/C_Login_Cliente.php" method="POST">
+							<input type="email" name="email" placeholder="Email" required/>
+							<input type="password" name="password" placeholder="Senha" required/>
+							<button type="submit" class="btn btn-default">Conectar</button>
 						</form>
 					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">OU</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Cadastre-se</h2>
+						<form action="../controller/C_Cadastro_Cliente.php" method="POST">
+							<input type="text" name ="Cnome" placeholder="Nome completo"/>
+                                                        <input type="text" name="Ccpf" placeholder="CPF"/>
+                                                        <input type="email" name="Cemail" placeholder="Email"/>
+							<input type="password" name="Csenha" placeholder="Senha"/>
+                                                        <input type="text" name="Crua" placeholder="Rua" />
+                                                        <input type="text" name="Cnumero" placeholder="Número"/>
+                                                        <input type="text" name="Cbairro" placeholder="Bairro" />
+                                                        <input type="text" name="Ccidade" placeholder="Cidade"/>
+                                                        <input type="text" name="Ctelefone" placeholder="Telefone" />
+							<button type="submit" class="btn btn-default">Cadastrar</button>
+						</form>
+					</div><!--/sign up form-->
 				</div>
 			</div>
 		</div>
 	</section><!--/form-->
 
+  
     <script src="js/jquery.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
