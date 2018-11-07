@@ -44,7 +44,8 @@
 							<ul class="nav navbar-nav">
 							<?php
 								if(isset($_SESSION["login"])){
-									$nome = $_SESSION["login"];
+									$vet = $_SESSION["login"];
+									$nome = $vet[1];
 									echo "<li><a href='conta.php'><i class='fa fa-user'></i>".$nome."</a></li>";
 									echo "<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Carrinho</a></li>";
 								} else {

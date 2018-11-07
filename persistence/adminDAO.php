@@ -17,7 +17,7 @@
 			}else {
 			  $_SESSION["admin"] = $email;
 			  header("Location:../view/index.php");
-			  echo"<script language='javascript' type='text/javascript'>window.location.href='../view/admin.html';window.alert('Usuario ou senha invalido(s)');</script>";
+			  echo"<script language='javascript' type='text/javascript'>window.location.href='../view/admin.php';window.alert('Usuario ou senha invalido(s)');</script>";
 			  die();
 			}
 		}

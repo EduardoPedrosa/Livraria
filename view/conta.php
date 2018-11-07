@@ -44,7 +44,8 @@
 							<ul class="nav navbar-nav">
 							<?php
 								if(isset($_SESSION["login"])){
-									$nome = $_SESSION["login"];
+									$vet = $_SESSION["login"];
+									$nome = $vet[1];
 									echo "<li><a href='conta.php'><i class='fa fa-user'></i>".$nome."</a></li>";
 									echo "<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Carrinho</a></li>";
 								} else {
@@ -95,20 +96,32 @@
 				<div>
 					<div class="login-form"><!--login form-->
 						<h2>Seus dados</h2>
-						<form action="#">
-							<input type="text" name ="Cnome" placeholder="Nome completo"/>
-                                                        <input type="text" name="Ccpf" placeholder="CPF"/>
-                                                        <input type="email" name="Cemail" placeholder="Email" disabled/>
-							<input type="password" name="Csenha" placeholder="Senha"disabled/>
-                                                        <input type="text" name="Crua" placeholder="Rua" />
-                                                        <input type="text" name="Cnumero" placeholder="Número"/>
-                                                        <input type="text" name="Cbairro" placeholder="Bairro" />
-                                                        <input type="text" name="Ccidade" placeholder="Cidade"/>
-                                                        <input type="text" name="Ctelefone" placeholder="Telefone" />
-                                                        <div class="btn-group">
-                                                            <button type="submit" class="btn btn-default">Salvar alterações</button>
-                                                            <button type="button" onclick="window.location='index.php'" class="botao btn btn-default">Cancelar</button>
-                                                        </div>
+						<form action="../controller/C_Altera_Cliente.php" method="POST">
+							<?php 
+								$vet = $_SESSION["login"];
+								$nome = $vet[1];
+								$cpf = $vet[2];
+								$email = $vet[3];
+								$senha = $vet[4];
+								$rua = $vet[5];
+								$numero = $vet[6];
+								$bairro = $vet[7];
+								$cidade = $vet[8];
+								$telefone = $vet[9];
+								echo "Nome: <input type='text' name ='Cnome' value='".$nome."'/>";
+								echo "CPF: <input type='text' name='Ccpf' value='".$cpf."'/>";
+								echo "Email: <input type='email' name='Cemail' value='".$email."' readonly/>";
+								echo "Senha: <input type='password' name='Csenha' value='".$senha."' readonly/>";
+								echo "Rua: <input type='text' name='Crua' value='".$rua."' />";
+								echo "Numero: <input type='text' name='Cnumero' value='".$numero."'/>";
+								echo "Bairro: <input type='text' name='Cbairro' value='".$bairro."' />";
+								echo "Cidade: <input type='text' name='Ccidade' value='".$cidade."'/>";
+								echo "Telefone: <input type='text' name='Ctelefone' value='".$telefone."' />";
+							?>
+							<div class="btn-group">
+								<button type="submit" class="btn btn-default">Salvar alterações</button>
+								<button type="button" onclick="window.location='index.php'" class="botao btn btn-default">Cancelar</button>
+							</div>
 						</form>
 					</div><!--/login form-->
 				</div>

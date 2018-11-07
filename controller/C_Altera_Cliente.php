@@ -15,14 +15,15 @@
 	$telefone = $_POST["Ctelefone"];
 	
 	//Instanciar objeto
-	$f1 = new Cliente($nome, $cpf, $email, $senha, $rua, $numero, $bairro, $cidade, $telefone);
+	$c1 = new Cliente($nome, $cpf, $email, $senha, $rua, $numero, $bairro, $cidade, $telefone);
 	
 	//Conectar BD
 	$connection = new Connection("localhost", "root", "", "Livraria");
 	$link = $connection->getLink();
 	
 	//Realizar Operação
-	$funcDAO = new ClienteDAO();
-	$funcDAO->cadastrar($link, $f1);
-		echo"<script language='javascript' type='text/javascript'>window.location.href='../view/login.php';window.alert('Cadastrado com sucesso');</script>";
+	$clienteDAO = new ClienteDAO();
+	$clienteDAO->alterar($link, $c1);
+	$clienteDAO->relogar($link,$email,$senha);
+	echo"<script language='javascript' type='text/javascript'>window.location.href='../view/login.php';window.alert('Alterado com sucesso');</script>";
 ?>
