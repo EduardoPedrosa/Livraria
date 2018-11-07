@@ -28,11 +28,6 @@
 </head><!--/head-->
 
 <body>
-<?php
-        if(!isset($_SESSION["login"])){
-                echo "<script>alert('Você precisa estar logado para fazer compras');window.location.href='login.php';</script>";
-        }
-?>
 <header id="header"><!--header-->
 	<div class="header-middle"><!--header-middle-->
 			<div class="container">
@@ -120,11 +115,13 @@
                                                             <span>
                                                                     <span>R$ 50,00</span>
                                                                     <label>Quantidade:</label>
-                                                                    <input type="text" value="1" />
-                                                                    <button type="button" class="btn btn-fefault cart">
-                                                                            <i class="fa fa-shopping-cart"></i>
-                                                                            Adicionar ao carrinho
-                                                                    </button>
+																	<form method="POST" action="verificarLogin.php" style="display: inline;">
+																		<input type="text" value="1"/>
+																		<button type="submit" class="btn btn-fefault cart">
+																				<i class="fa fa-shopping-cart"></i>
+																				Adicionar ao carrinho
+																		</button>
+																	</form>
                                                             </span>
                                                             <p><b>Disponibilidade:</b> Em estoque</p>
                                                             <p><b>Condição:</b> Novo</p>
