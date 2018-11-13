@@ -120,7 +120,8 @@
 							?>
 							<div class="btn-group">
 								<button type="submit" class="btn btn-default">Salvar alterações</button>
-								<button type="button" onclick="window.location='index.php'" class="botao btn btn-default">Cancelar</button>
+								<button type="button" onclick="window.location='../controller/C_Exclui_Cliente.php'" class="btn btn-default">Excluir cadastro</button>
+								<button type="button" onclick="window.location='index.php'" class="btn btn-default">Cancelar</button>
 							</div>
 						</form>
 					</div><!--/login form-->

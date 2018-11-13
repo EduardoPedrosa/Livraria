@@ -25,5 +25,5 @@
 	$clienteDAO = new ClienteDAO();
 	$clienteDAO->alterar($link, $c1);
 	$clienteDAO->relogar($link,$email,$senha);
-	echo"<script language='javascript' type='text/javascript'>window.location.href='../view/login.php';window.alert('Alterado com sucesso');</script>";
+	echo"<script language='javascript' type='text/javascript'>window.location.href='../view/index.php';window.alert('Alterado com sucesso');</script>";
 ?>

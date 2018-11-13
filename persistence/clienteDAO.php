@@ -5,12 +5,20 @@
 	class ClienteDAO{
 		function __construct(){	
 		}
+
 		function cadastrar($link, $f){
-			$insert = "insert into Cliente (nome, cpf, email, senha, rua, numero, bairro, cidade, telefone)
+			$select = "SELECT * FROM cliente WHERE email = '".$f->getEmail()."'";
+			$verifica = mysqli_query($link, $select);
+			if (mysqli_num_rows($verifica)<=0){
+				$insert = "insert into Cliente (nome, cpf, email, senha, rua, numero, bairro, cidade, telefone)
 					   values('".$f->getNome()."', '".$f->getCpf()."', '".$f->getEmail()."', '".$f->getSenha()."', '".$f->getRua()."', ".$f->getNumero().", '".$f->getBairro()."', '".$f->getCidade()."', '".$f->getTelefone()."')"; 
-			if(!mysqli_query($link, $insert)){
-				die("Não foi possivel salvar o cadastro".mysqli_error($link));
+				if(!mysqli_query($link, $insert)){
+					die("Não foi possivel salvar o cadastro".mysqli_error($link));
+				}
+			} else {
+				echo"<script language='javascript' type='text/javascript'>window.location.href='../view/login.php';window.alert('Email ja cadastrado');</script>";
 			}
+			
 		}
 
 		function alterar($link, $c){
@@ -68,8 +76,8 @@
 			}
 		}
 
-		function excluir($link, $f){
-			$delete = "delete from Funcionario where nome = '".$f->getNome()."'";
+		function excluir($link, $email){
+			$delete = "delete from Cliente where email = '".$email."'";
 			if(!mysqli_query($link, $delete)){
 				die("Não foi possivel excluir".mysqli_error($link));
 			}
