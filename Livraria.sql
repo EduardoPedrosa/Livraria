@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 01-Nov-2018 às 19:10
--- Versão do servidor: 5.7.23
--- versão do PHP: 7.2.10
+-- Generation Time: 16-Nov-2018 às 17:41
+-- Versão do servidor: 5.7.21
+-- PHP Version: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `cidade` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `telefone` char(11) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -84,7 +84,11 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 INSERT INTO `cliente` (`idCliente`, `nome`, `cpf`, `email`, `senha`, `rua`, `numero`, `bairro`, `cidade`, `telefone`) VALUES
 (2, 'Eduardo', '12312312312', 'aasdf@adf.com', '1231231231', '12', 12313, '121', '1231', '12112121212'),
-(13, 'Eduardo', '12312312312', 'asdf@a.com', '2', '12', 12313, '121', '1231', '12112121212');
+(13, 'Eduardo', '12312312312', 'asdf@a.com', '2', '12', 12313, '121', '1231', '12112121212'),
+(14, 'Joao', '123', 'a@aa.com', '1', '1', 1, '1', '1', '35999999999'),
+(15, 'Sido', '1', 'a@aaa.com', '1', '1', 1, '1', '1', '35999999999'),
+(16, 'Sida', '1', 'a@com.com', '1', '1', 1, '1', '1', '12121212121'),
+(17, 'Joao', '1', 'a@gmail.com', '1', '1', 1, '1', '1', '12121212121');
 
 -- --------------------------------------------------------
 
@@ -100,10 +104,10 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `preco` decimal(10,0) NOT NULL,
   `condicao` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `descricao` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `capa` blob NOT NULL,
+  `capa` longblob NOT NULL,
   `quantidade` int(11) NOT NULL,
   PRIMARY KEY (`idProduto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `produto`

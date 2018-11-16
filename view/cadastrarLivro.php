@@ -96,14 +96,15 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Cadastre um livro novo</h2>
-						<form action="#">
+						<form enctype="multipart/form-data" action="../controller/C_Cadastro_Livro.php" method = "POST">
 							<input type="text" name="nome" placeholder="Nome" />
 							<input type="text" name="autor" placeholder="Autor" />
-                                                        <input type="text" name="descricao" placeholder="Descrição" />
-                                                        <input type="text" name="condicao" placeholder="Condição" />
-                                                        <input type="text" name="preco" placeholder="Preço " />
-                                                        <input type="number" name="quantidade" placeholder="Quantidade "/>
-                                                        <span class="text-success ">Capa do Livro</span> <input type="file" name="capa" accept="image/*" />
+                        	<input type="text" name="descricao" placeholder="Descrição" />
+                            <input type="text" name="condicao" placeholder="Condição" />
+							<input type="text" name="preco" placeholder="Preço " />
+							<input type="number" name="quantidade" placeholder="Quantidade "/>
+							<span class="text-success ">Capa do Livro</span> 
+							<div><input name="capa" type="file"/></div>
 							<button type="submit" class="btn btn-default">Cadastrar</button>
 						</form>
 					</div><!--/login form-->
