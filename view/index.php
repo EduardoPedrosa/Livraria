@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 	session_start();
+	include_once("../persistence/connection.php");
+	include_once("../persistence/livroDAO.php");
 ?>
 <html lang="en">
 <head>
@@ -95,103 +97,34 @@
 				<div class=" padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Livros disponíveis</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
-											<h2>R$ 50,00</h2>
-											<p>Livro 1</p>
-											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>R$ 50,00</h2>
-												<p>Livro 1</p>
-												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-											</div>
-										</div>
-								</div>
-							</div>
-						</div>
-                                                <div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
-											<h2>R$ 50,00</h2>
-											<p>Livro 2</p>
-											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>R$ 50,00</h2>
-												<p>Livro 2</p>
-												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-											</div>
-										</div>
-								</div>
-							</div>
-						</div>
-                                                <div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
-											<h2>R$ 50,00</h2>
-											<p>Livro 3</p>
-											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>R$ 50,00</h2>
-												<p>Livro 3</p>
-												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-											</div>
-										</div>
-								</div>
-							</div>
-						</div>
-                                                <div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
-											<h2>R$ 50,00</h2>
-											<p>Livro 4</p>
-											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>R$ 50,00</h2>
-												<p>Livro 4</p>
-												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-											</div>
-										</div>
-								</div>
-							</div>
-						</div>
-                                                <div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img class="img-livro" src="images/img-exemplo.jpg" alt="" />
-											<h2>R$ 50,00</h2>
-											<p>Livro 5</p>
-											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>R$ 50,00</h2>
-												<p>Livro 5</p>
-												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver detalhes</a>
-											</div>
-										</div>
-								</div>
-							</div>
-						</div>
-						
-						
+						<?php	
+							$connection = new Connection("localhost", "root", "", "Livraria");
+							$link = $connection->getLink();
+
+							$livDAO = new LivroDAO();
+							$result = $livDAO->consultarTodos($link);
+							while($row = mysqli_fetch_array($result)){
+								echo "<div class='col-sm-4'>";
+									echo "<div class='product-image-wrapper'>";
+										echo "<div class='single-products'>";
+											echo "<div class='productinfo text-center'>";
+												echo "<img class='img-livro' src='data:image/jpeg;base64," . base64_encode( $row[3]) . "'/>";
+												echo "<h2>".number_format($row[2], 2, ',', '')."</h2>";
+												echo "<p>".$row[1]."</p>";
+												echo "<a href='product-details.php?id=".$row[0]."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Ver detalhes</a>";
+											echo "</div>";
+											echo "<div class='product-overlay'>";
+												echo "<div class='overlay-content'>";
+												echo "<h2>".number_format($row[2], 2, ',', '')."</h2>";
+												echo "<p>".$row[1]."</p>";
+												echo "<a href='product-details.php?id=".$row[0]."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Ver detalhes</a>";
+												echo "</div>";
+											echo "</div>";
+										echo "</div>";
+									echo "</div>";
+								echo "</div>";
+							}
+						?>
 					</div><!--features_items-->
 					
 				</div>

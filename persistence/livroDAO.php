@@ -21,5 +21,14 @@
 			$result = mysqli_fetch_array($r);
 			return $result;
 		}
+
+		function consultarTodos($link){
+			$consulta = "select idProduto, nome, preco, capa from produto";
+			$r = mysqli_query($link,$consulta);
+			if(!$r){
+				die("Não foi possivel consultar os livros".mysqli_error($link));
+			}
+			return $r;
+		}
 	}
 ?>
