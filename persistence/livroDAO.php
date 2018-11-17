@@ -22,11 +22,20 @@
 			return $result;
 		}
 
-		function consultarTodos($link){
-			$consulta = "select idProduto, nome, preco, capa from produto";
-			$r = mysqli_query($link,$consulta);
-			if(!$r){
-				die("Não foi possivel consultar os livros".mysqli_error($link));
+		function consultarTodos($link,$chave){
+			if($chave == ""){
+				$consulta = "select idProduto, nome, preco, capa from produto";
+				$r = mysqli_query($link,$consulta);
+				if(!$r){
+					die("Não foi possivel consultar os livros".mysqli_error($link));
+				}
+			} else {
+				$consulta = "select idProduto, nome, preco, capa from produto 
+					where nome like '%$chave%' or autor like '%$chave%'";
+				$r = mysqli_query($link,$consulta);
+				if(!$r){
+					die("Não foi possivel consultar os livros".mysqli_error($link));
+				}
 			}
 			return $r;
 		}

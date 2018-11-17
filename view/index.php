@@ -102,7 +102,11 @@
 							$link = $connection->getLink();
 
 							$livDAO = new LivroDAO();
-							$result = $livDAO->consultarTodos($link);
+							$chave = "";
+							if(isset($_GET["chave"])){
+								$chave = $_GET["chave"];
+							}
+							$result = $livDAO->consultarTodos($link,$chave);
 							while($row = mysqli_fetch_array($result)){
 								echo "<div class='col-sm-4'>";
 									echo "<div class='product-image-wrapper'>";
