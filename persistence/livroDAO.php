@@ -11,5 +11,15 @@
 				die("Não foi possível salvar o cadastro do livro".mysqli_error($link));
 			}
 		}
+
+		function consultar($link, $id){
+			$consulta = "select * from produto where idProduto ='".$id."'";
+			$r = mysqli_query($link, $consulta);
+			if(!$r){
+				die("Não foi possivel consultar o livro".mysqli_error($link));
+			}
+			$result = mysqli_fetch_array($r);
+			return $result;
+		}
 	}
 ?>

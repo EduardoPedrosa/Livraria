@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 	session_start();
+	include_once("../persistence/connection.php");
+	include_once("../persistence/livroDAO.php");
 ?>
 <html lang="en">
 <head>
@@ -26,7 +28,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
+<?php
+	$id = $_GET["id"];
+	$connection = new Connection("localhost", "root", "", "Livraria");
+	$link = $connection->getLink();
 
+	$livDAO = new LivroDAO();
+	$livro = $livDAO->consultar($link, $id);
+?>
 <body>
 <header id="header"><!--header-->
 	<div class="header-middle"><!--header-middle-->
@@ -96,7 +105,9 @@
                                     <div class="product-details"><!--product-details-->
                                             <div class="col-sm-5">
                                                     <div class="view-product">
-                                                            <img class="img-livro-detalhe" src="images/img-exemplo.jpg" alt="" />
+							<?php 
+								echo "<img class='img-livro-detalhe' src='data:image/jpeg;base64," . base64_encode( $livro[6]) . "'/>";
+							?>
                                                     </div>
                                                     <div id="similar-product" class="carousel slide" data-ride="carousel">
                                                               <!-- Controls -->
@@ -111,21 +122,30 @@
                                             </div>
                                             <div class="col-sm-7">
                                                     <div class="product-information"><!--/product-information-->
-                                                            <h2>Grafos: Conceitos, algoritmos e aplicações</h2>
-                                                            <p>Marco Goldbarg e Elizabeth Goldbarg</p>
-                                                            <span>
-                                                                    <span>R$ 50,00</span>
-                                                                    <label>Quantidade:</label>
-																	<form method="POST" action="verificarLogin.php" style="display: inline;">
-																		<input type="text" value="1"/>
-																		<button type="submit" class="btn btn-fefault cart">
-																				<i class="fa fa-shopping-cart"></i>
-																				Adicionar ao carrinho
-																		</button>
-																	</form>
+							<?php
+                                                            echo "<h2>".$livro[1]."</h2>";
+                                                            echo "<p>".$livro[2]."</p>";
+                                                            echo "<span>";
+								echo "<span>R$ ".number_format($livro[3], 2, ',', '')."</span>";
+								echo "<label>Quantidade </label>";
+								echo "<form method='POST' action='verificarLogin.php' style='display: inline;'>";
+									echo "<input type='text' value='1'/>";
+							?>
+									<button type="submit" class="btn btn-fefault cart">
+											<i class="fa fa-shopping-cart"></i>
+											Adicionar ao carrinho
+									</button>
+								</form>
                                                             </span>
-                                                            <p><b>Disponibilidade:</b> Em estoque</p>
-                                                            <p><b>Condição:</b> Novo</p>
+							<?php
+							    echo "<p><b>Disponibilidade: </b>";
+							    	if($livro[7] > 1){
+									echo "Em estoque</p>";
+								} else {
+									echo "Esgotado</p>";
+								}
+							    echo "<p><b>Condição: </b>".$livro[4]."</p>";
+							?>
                                                     </div><!--/product-information-->
                                             </div>
                                     </div><!--/product-details-->
@@ -138,8 +158,10 @@
                                             </div>
                                                     <div class="tab-pane fade active in" id="details" >
                                                             <div class="col-sm-12">
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                                            </div>
+								<?php
+                                                                    echo "<p>".$livro[5]."</p>";
+								?>
+							</div>
                                                     </div>
 					</div><!--/category-tab-->
 				</div>
