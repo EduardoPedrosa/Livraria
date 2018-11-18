@@ -27,6 +27,16 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	<script type="text/javascript">
+
+		function handle(){
+			var keycode = window.event.keyCode;
+			if (keycode == 13){
+				document.formulario.submit();
+			}
+		}
+
+	</script>
 </head><!--/head-->
 
 <body>
@@ -84,7 +94,9 @@
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<form method="GET" action="index.php" name="formulario">
+								<input type="text" name="chave" placeholder="Pesquisar" onkeypress="handle();"/>
+							</form>
 						</div>
 					</div>
 				</div>

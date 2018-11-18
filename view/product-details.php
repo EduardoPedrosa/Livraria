@@ -28,19 +28,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-<script type="text/javascript">
-    	function keyPressed(evt){
-		evt = evt || window.event;
-		var key = evt.keyCode || evt.which;
-		return String.fromCharCode(key); 
-	}
-
-	document.onkeypress = function(evt) {
-		var str = keyPressed(evt);
-		alert(str);
-	};
-</script>
-
 </head><!--/head-->
 <?php
 	$id = $_GET["id"];
@@ -104,13 +91,6 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<form method="GET" action="index.php" name="formulario">
-								<input type="text" placeholder="Pesquisar" onkeypress="submitForm(e)"/>
-							</form>
 						</div>
 					</div>
 				</div>
