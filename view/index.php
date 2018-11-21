@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | Livraria</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/price-range.css" rel="stylesheet">
@@ -125,13 +125,13 @@
 										echo "<div class='single-products'>";
 											echo "<div class='productinfo text-center'>";
 												echo "<img class='img-livro' src='data:image/jpeg;base64," . base64_encode( $row[3]) . "'/>";
-												echo "<h2>".number_format($row[2], 2, ',', '')."</h2>";
+												echo "<h2>R$ ".number_format($row[2], 2, ',', '')."</h2>";
 												echo "<p>".$row[1]."</p>";
 												echo "<a href='product-details.php?id=".$row[0]."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Ver detalhes</a>";
 											echo "</div>";
 											echo "<div class='product-overlay'>";
 												echo "<div class='overlay-content'>";
-												echo "<h2>".number_format($row[2], 2, ',', '')."</h2>";
+												echo "<h2>R$ ".number_format($row[2], 2, ',', '')."</h2>";
 												echo "<p>".$row[1]."</p>";
 												echo "<a href='product-details.php?id=".$row[0]."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Ver detalhes</a>";
 												echo "</div>";

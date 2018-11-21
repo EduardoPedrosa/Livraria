@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Cadastrar Livro | Livraria</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/price-range.css" rel="stylesheet">
