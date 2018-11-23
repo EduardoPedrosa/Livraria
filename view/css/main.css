@@ -1608,7 +1608,7 @@ h2.title {
 
 
 #cart_items .cart_info .cart_description h4 {
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 #cart_items .cart_info .cart_description h4 a {
@@ -1633,6 +1633,10 @@ h2.title {
 #cart_items .cart_info .cart_total_price {
   color: #FE980F;
   font-size: 24px;
+}
+
+.texto_carrinho{
+  margin-left: 40px;
 }
 
 .cart_product {

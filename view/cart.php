@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 	session_start();
+	include_once("../persistence/connection.php");
+	include_once("../persistence/carrinhoDAO.php");
 ?>
 <html lang="en">
 <head>
@@ -106,58 +108,48 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img class="cart-img" src="images/img-exemplo.jpg" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Livro 1</a></h4>
-								<p>Autor 1</p>
-							</td>
-							<td class="cart_price">
-								<p>R$ 50,00</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">R$50,00</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-                                                <tr>
-							<td class="cart_product">
-								<a href=""><img class="cart-img" src="images/img-exemplo.jpg" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Livro 2</a></h4>
-								<p>Autor 2</p>
-							</td>
-							<td class="cart_price">
-								<p>R$ 50,00</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">R$50,00</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+					<?php 
+						$vet = $_SESSION["login"];
+						$idCliente = $vet[0];
+						$connection = new Connection("localhost", "root", "", "Livraria");
+						$link = $connection->getLink();
 
+						$carrinho = new CarrinhoDAO();
+						$itensCarrinho = $carrinho->buscarItens($link,$idCliente);
 						
+						if (mysqli_num_rows($itensCarrinho)<=0){
+							echo '<tr>';
+								echo '<td class="cart_product">O carrinho está vazio</td>';
+							echo '</tr>';
+						}
+						while($row = mysqli_fetch_array($itensCarrinho)){
+							echo '<tr>';
+								echo '<td class="cart_product">';
+									echo '<a href="product-details.php?id='.$row[0].'"><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode($row[4]) . '"/>';
+								echo '</td>';
+								echo '<td class="cart_description">';
+									echo '<h4 style="margin-left:50px"><a href="product-details.php?id='.$row[0].'">'.$row[1].'</a></h4>';
+									echo '<p style="margin-left:52px">'.$row[2].'</p>';
+									echo '</td>';
+									echo '<td class="cart_price">';
+										echo '<p>'.number_format($row[3], 2, ',', '').'</p>';
+										echo '</td>';
+										echo '<td class="cart_quantity">';
+											echo '<div class="cart_quantity_button">';
+												echo '<a class="cart_quantity_up" href=""> + </a>';
+												echo '<input class="cart_quantity_input" type="text" name="quantity" value="'.$row[5].'" autocomplete="off" size="2">';
+												echo '<a class="cart_quantity_down" href=""> - </a>';
+											echo '</div>';
+										echo '</td>';
+										echo '<td class="cart_total">';
+											echo '<p class="cart_total_price">R$50,00</p>';
+										echo '</td>';
+										echo '<td class="cart_delete">';
+											echo '<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>';
+										echo '</td>';
+							echo '</tr>';
+						}
+					?>					
 					</tbody>
 				</table>
 			</div>
