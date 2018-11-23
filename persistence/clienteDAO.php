@@ -81,7 +81,6 @@
 			if(!mysqli_query($link, $delete)){
 				die("Não foi possivel excluir".mysqli_error($link));
 			}
-			echo "Excluido com sucesso";
 		}
 	}
 ?>

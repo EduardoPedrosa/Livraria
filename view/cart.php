@@ -86,92 +86,79 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
+		<section id="cart_items">
+			<div class="container">
+				<div class="breadcrumbs">
+					<ol class="breadcrumb">
+					<li><a href="index.php">Início</a></li>
+					<li class="active">Carrinho de compras</li>
+					</ol>
+				</div>
+				<div class="table-responsive cart_info">
+					<table class="table table-condensed">
+						<thead>
+							<tr class="cart_menu">
+								<td class="image">Item</td>
+								<td class="description"></td>
+								<td class="price">Preço</td>
+								<td class="quantity">Quantidade</td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+						<?php 
+							$vet = $_SESSION["login"];
+							$idCliente = $vet[0];
+							$connection = new Connection("localhost", "root", "", "Livraria");
+							$link = $connection->getLink();
 
-	<section id="cart_items">
-		<div class="container">
-			<div class="breadcrumbs">
-				<ol class="breadcrumb">
-				  <li><a href="index.php">Início</a></li>
-				  <li class="active">Carrinho de compras</li>
-				</ol>
-			</div>
-			<div class="table-responsive cart_info">
-				<table class="table table-condensed">
-					<thead>
-						<tr class="cart_menu">
-							<td class="image">Item</td>
-							<td class="description"></td>
-							<td class="price">Preço</td>
-							<td class="quantity">Quantidade</td>
-							<td class="total">Total</td>
-							<td></td>
-						</tr>
-					</thead>
-					<tbody>
-					<?php 
-						$vet = $_SESSION["login"];
-						$idCliente = $vet[0];
-						$connection = new Connection("localhost", "root", "", "Livraria");
-						$link = $connection->getLink();
-
-						$carrinho = new CarrinhoDAO();
-						$itensCarrinho = $carrinho->buscarItens($link,$idCliente);
-						
-						if (mysqli_num_rows($itensCarrinho)<=0){
-							echo '<tr>';
-								echo '<td class="cart_product">O carrinho está vazio</td>';
-							echo '</tr>';
-						}
-						while($row = mysqli_fetch_array($itensCarrinho)){
-							echo '<tr>';
-								echo '<td class="cart_product">';
-									echo '<a href="product-details.php?id='.$row[0].'"><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode($row[4]) . '"/>';
-								echo '</td>';
-								echo '<td class="cart_description">';
-									echo '<h4 style="margin-left:50px"><a href="product-details.php?id='.$row[0].'">'.$row[1].'</a></h4>';
-									echo '<p style="margin-left:52px">'.$row[2].'</p>';
+							$carrinho = new CarrinhoDAO();
+							$itensCarrinho = $carrinho->buscarItens($link,$idCliente);
+							
+							if (mysqli_num_rows($itensCarrinho)<=0){
+								echo '<tr>';
+									echo '<td class="cart_product">O carrinho está vazio</td>';
+								echo '</tr>';
+							}
+							while($row = mysqli_fetch_array($itensCarrinho)){
+								echo '<tr>';
+									echo '<td class="cart_product">';
+										echo '<a href="product-details.php?id='.$row[0].'"><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode($row[4]) . '"/>';
 									echo '</td>';
-									echo '<td class="cart_price">';
-										echo '<p>'.number_format($row[3], 2, ',', '').'</p>';
+									echo '<td class="cart_description">';
+										echo '<h4 style="margin-left:50px"><a href="product-details.php?id='.$row[0].'">'.$row[1].'</a></h4>';
+										echo '<p style="margin-left:52px">'.$row[2].'</p>';
 										echo '</td>';
-										echo '<td class="cart_quantity">';
-											echo '<div class="cart_quantity_button">';
-												echo '<a class="cart_quantity_up" href=""> + </a>';
-												echo '<input class="cart_quantity_input" type="text" name="quantity" value="'.$row[5].'" autocomplete="off" size="2">';
-												echo '<a class="cart_quantity_down" href=""> - </a>';
-											echo '</div>';
-										echo '</td>';
-										echo '<td class="cart_total">';
-											echo '<p class="cart_total_price">R$50,00</p>';
-										echo '</td>';
-										echo '<td class="cart_delete">';
-											echo '<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>';
-										echo '</td>';
-							echo '</tr>';
-						}
-					?>					
-					</tbody>
-				</table>
+										echo '<td class="cart_price">';
+											echo '<p>'.number_format($row[3], 2, ',', '').'</p>';
+											echo '</td>';
+											echo '<td class="cart_quantity">';
+												echo '<div class="cart_quantity_button">';
+													echo '<input id="qtdInput" class="cart_quantity_input" type="text" name="quantity" min="0" value="'.$row[5].'" autocomplete="off" disabled size="2">';
+												echo '</div>';
+											echo '</td>';
+											echo '<td class="cart_delete">';
+												echo '<a class="cart_quantity_delete" href="../controller/C_Excluir_Carrinho.php?idProduto='.$row[0].'&idCliente='.$idCliente.'"><i class="fa fa-times"></i></a>';
+											echo '</td>';
+								echo '</tr>';
+							}
+						?>					
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-	</section> <!--/#cart_items-->
+		</section> <!--/#cart_items-->
 
-	<section id="do_action">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="total_area">
-						<ul>
-							<li>Sub-total <span>R$ 100,00</span></li>
-							<li>Frete <span>R$ 10,00</span></li>
-							<li>Total <span>$ 110,00</span></li>
-						</ul>
+		<section id="do_action">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
 							<a class="btn btn-default update" href="pagamento.php">Seguir compra</a>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section><!--/#do_action-->
+		</section><!--/#do_action-->
+		
 
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
