@@ -10,11 +10,24 @@
 		}
 
 		function cadastrar($link, $quantidade, $idCliente, $idProduto){
-			$insert = "insert into carrinho (quantidade,idCliente,idProduto) values(".$quantidade.", ".$idCliente.", ".$idProduto.")";
+			$select = "SELECT * FROM carrinho WHERE idProduto=".$idProduto." and idCliente=".$idCliente;
+			$verifica = mysqli_query($link, $select);
+			if (mysqli_num_rows($verifica)<=0){
+				$insert = "insert into carrinho (quantidade,idCliente,idProduto) values(".$quantidade.", ".$idCliente.", ".$idProduto.")";
 				if(!mysqli_query($link, $insert)){
 					die("Não foi possivel adicionar item".mysqli_error($link));
 				}
 				echo "<script language='javascript' type='text/javascript'>window.location.href='../view/index.php'</script>";
+			} else {
+				echo"<script language='javascript' type='text/javascript'>window.location.href='../view/cart.php';window.alert('Item já está no carrinho');</script>";
+			}
+		}
+
+		function alterar($link, $qtd, $idProduto, $idCliente){
+			$alterar = "update carrinho set quantidade=".$qtd." where idProduto=".$idProduto." and idCliente=".$idCliente;
+			if(!mysqli_query($link, $alterar)){
+				die("Não foi possivel alterar a quantidade".mysqli_error($link));
+			}
 		}
 
 		function excluir($link, $idProduto, $idCliente){

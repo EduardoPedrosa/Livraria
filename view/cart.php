@@ -16,7 +16,7 @@
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/price-range.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -122,6 +122,7 @@
 							}
 							while($row = mysqli_fetch_array($itensCarrinho)){
 								echo '<tr>';
+									echo '<form method="POST" action="../controller/C_Altera_Carrinho.php?idProduto='.$row[0].'&idCliente='.$idCliente.'">';
 									echo '<td class="cart_product">';
 										echo '<a href="product-details.php?id='.$row[0].'"><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode($row[4]) . '"/>';
 									echo '</td>';
@@ -134,12 +135,14 @@
 											echo '</td>';
 											echo '<td class="cart_quantity">';
 												echo '<div class="cart_quantity_button">';
-													echo '<input id="qtdInput" class="cart_quantity_input" type="text" name="quantity" min="0" value="'.$row[5].'" autocomplete="off" disabled size="2">';
+													echo '<input id="qtdInput" class="cart_quantity_input" type="text" name="qtd" min="0" value="'.$row[5].'" autocomplete="off" size="2">';
 												echo '</div>';
 											echo '</td>';
 											echo '<td class="cart_delete">';
+												echo '<button type="submit" style="margin-right: 10px;" class="btn btn-default">Alterar</button>';
 												echo '<a class="cart_quantity_delete" href="../controller/C_Excluir_Carrinho.php?idProduto='.$row[0].'&idCliente='.$idCliente.'"><i class="fa fa-times"></i></a>';
 											echo '</td>';
+									echo '</form>';
 								echo '</tr>';
 							}
 						?>					
