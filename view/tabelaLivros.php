@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
-	session_start();
+    session_start();
+    include_once("../persistence/connection.php");
+	include_once("../persistence/livroDAO.php");
 ?>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cadastrar Livro | Livraria</title>
+    <title>Tabela de Estoque | Livraria</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -83,50 +85,54 @@
 				</div>
 			</div>
 		</div><!--/header-bottom-->
-	</header><!--/header-->
-	
-	<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
-						<h2>Cadastre um livro novo</h2>
-						<form enctype="multipart/form-data" action="../controller/C_Cadastro_Livro.php" method = "POST">
-							<input type="text" name="nome" placeholder="Nome" />
-							<input type="text" name="autor" placeholder="Autor" />
-                        	<input type="text" name="descricao" placeholder="Descrição" />
-                            <input type="text" name="condicao" placeholder="Condição" />
-							<input type="text" name="preco" placeholder="Preço " />
-							<input type="number" name="quantidade" placeholder="Quantidade "/>
-							<span class="text-success ">Capa do Livro</span> 
-							<div><input name="capa" type="file"/></div>
-							<button type="submit" class="btn btn-default">Cadastrar</button>
-						</form>
-					</div><!--/login form-->
-				</div>
-				<div class="col-sm-1">
-					<h2 class="or">OU</h2>
-				</div>
-				<div class="col-sm-4">
-					<div class="signup-form"><!--sign up form-->
-						<h2>Veja os livros cadastrados</h2>
-						<form action="tabelaLivros.php">
-							<button type="submit" class="btn btn-default">Acessar tabela</button>
-						</form>
-					</div><!--/sign up form-->
-				</div>
-			</div>
-		</div>
-	</section><!--/form-->
+    </header><!--/header-->
+    <section id="cart_items">
+        <div class="container">
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Item</td>
+                            <td class="description"></td>
+                            <td class="price">Preço</td>
+                            <td class="quantity">Quantidade</td>
+                            <td class="condition">Condição</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <?php
+                        $connection = new Connection("localhost", "root", "", "Livraria");
+                        $link = $connection->getLink();
 
-	
-
-  
-    <script src="js/jquery.js"></script>
-	<script src="js/price-range.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+                        $livDAO = new LivroDAO();
+                        $result = $livDAO->consultarTodos($link,"");
+                        while($row = mysqli_fetch_array($result)){
+                            echo '<tbody><tr>';
+                                echo'<td class="cart_product">';
+                                    echo'<a href=""><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode( $row[3]) . '"/>';
+                                echo '</td>';
+                                echo'<td class="cart_description">';
+                                    echo'<h4 style = "margin-left:55px">'.$row[1].'</h4>';
+                                    echo'<p style = "margin-left:58px">'.$row[4].'</p>';
+                                echo'</td>';
+                                echo'<td class="cart_price">';
+                                    echo'<p>R$'.number_format($row[2], 2, ',', '').'</p>';
+                                echo'</td>';
+                                echo'<td class="cart_price">';
+                                    echo'<p>'.$row[6].' itens no estoque</p>';
+                                echo'</td>';
+                                echo'<td class="cart_price">';
+                                    echo'<p>'.$row[5].'</p>';
+                                echo'</td>';
+                                echo'<td class="cart_delete">';
+                                    echo'<a href="alterarLivro.php?id='.$row[0].'"type="submit"  style="margin-top: 20px" class = "btn btn-default add-to-cart"  >Alterar</a>';
+                                    echo'<a class="cart_quantity_delete" style="margin-left: 30px" href="../controller/C_Excluir_Livro.php?id='.$row[0].'"><i class="fa fa-times"></i></a>';
+                                echo'</td>';
+                            echo'</tr></body>';
+                        }
+                    ?>
+                </table>
+            </div>
+        </div>
+    </section>  
+        

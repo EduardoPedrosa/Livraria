@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
-	session_start();
+    session_start();
+    include_once("../persistence/connection.php");
+	include_once("../persistence/livroDAO.php");
 ?>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cadastrar Livro | Livraria</title>
+    <title>Alterar Livro | Livraria</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -85,40 +87,38 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	
-	<section id="form"><!--form-->
+	<section id="form">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
-						<h2>Cadastre um livro novo</h2>
-						<form enctype="multipart/form-data" action="../controller/C_Cadastro_Livro.php" method = "POST">
-							<input type="text" name="nome" placeholder="Nome" />
-							<input type="text" name="autor" placeholder="Autor" />
-                        	<input type="text" name="descricao" placeholder="Descrição" />
-                            <input type="text" name="condicao" placeholder="Condição" />
-							<input type="text" name="preco" placeholder="Preço " />
-							<input type="number" name="quantidade" placeholder="Quantidade "/>
-							<span class="text-success ">Capa do Livro</span> 
-							<div><input name="capa" type="file"/></div>
-							<button type="submit" class="btn btn-default">Cadastrar</button>
-						</form>
-					</div><!--/login form-->
-				</div>
-				<div class="col-sm-1">
-					<h2 class="or">OU</h2>
-				</div>
-				<div class="col-sm-4">
-					<div class="signup-form"><!--sign up form-->
-						<h2>Veja os livros cadastrados</h2>
-						<form action="tabelaLivros.php">
-							<button type="submit" class="btn btn-default">Acessar tabela</button>
-						</form>
-					</div><!--/sign up form-->
-				</div>
-			</div>
-		</div>
-	</section><!--/form-->
+					<div class="login-form">
+                        <h2>Alterar Livro</h2>
+                        <form enctype="multipart/form-data" action="../controller/C_Altera_Livro.php" method = "POST">
+                            <?php
+                                $id = $_GET["id"];
 
+                                $connection = new Connection("localhost", "root", "", "Livraria");
+                                $link = $connection->getLink();
+                                
+                                $livDAO = new LivroDAO();
+								$row = $livDAO->consultar($link, $id);
+								echo 'Id: <input type="text" name = "identificador" value = "'.$row[0].'" readonly/>';
+                                echo 'Nome: <input type="text" name="nome" value="'.$row[1].'"/>';
+                                echo 'Autor: <input type="text" name="autor" value="'.$row[2].'"/>';
+								echo 'Quantidade: <input type="number" name="quantidade" value="'.$row[7].'"/>';
+								echo 'Descrição: <input type="text" name="descricao" value="'.$row[5].'"/>';
+                                echo 'Condição: <input type="text" name="condicao" value="'.$row[4].'"/>';
+                                echo 'Preço: <input type="text" name="preco" value="'.number_format($row[3], 2, '.', '').'" />';
+                                echo '<button type="submit" class="btn btn-default">Confirmar Alteração</button>';
+                            ?>
+                        </form>
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+				
 	
 
   

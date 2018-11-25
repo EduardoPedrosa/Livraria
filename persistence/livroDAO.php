@@ -24,7 +24,7 @@
 
 		function consultarTodos($link,$chave){
 			if($chave == ""){
-				$consulta = "select idProduto, nome, preco, capa from produto";
+				$consulta = "select idProduto, nome, preco, capa, autor, condicao, quantidade from produto";
 				$r = mysqli_query($link,$consulta);
 				if(!$r){
 					die("Não foi possivel consultar os livros".mysqli_error($link));
@@ -38,6 +38,23 @@
 				}
 			}
 			return $r;
+		}
+		
+		function alterar($link, $livro, $id){
+			$alterar = "UPDATE produto SET nome ='".$livro->getNome()."', autor = '".$livro->getAutor()."',
+						preco = '".$livro->getPreco()."', condicao = '".$livro->getCondicao()."', 
+						descricao = '".$livro->getDescricao()."', quantidade= '".$livro->getQuantidade()."'
+						WHERE idProduto = '".$id."'";
+			if(!mysqli_query($link, $alterar)){
+				die("Não foi possivel alterar o livro".mysqli_error($link));
+			}
+		}
+		
+		function excluir($link, $id){
+			$excluir = "DELETE from produto WHERE idProduto = ".$id;
+			if(!mysqli_query($link, $excluir)){
+				die("Não foi possivel excluir o livro".mysqli_error($link));
+			}
 		}
 	}
 ?>
