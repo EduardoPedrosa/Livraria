@@ -123,14 +123,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="container">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="login-form" >
-								<button  style="margin-right: 57%; margin-left:43%;" type="submit" class="btn btn-default">Finalizar compra</button>
-							</div>
-						</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="login-form" >
+						<button  style="margin-right: 57%; margin-left:43%;" type="submit" class="btn btn-default">Finalizar compra</button>
 					</div>
+				</div>
 			</div>
 			
 		</form>

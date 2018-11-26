@@ -24,9 +24,16 @@
 		}
 
 		function alterar($link, $qtd, $idProduto, $idCliente){
-			$alterar = "update carrinho set quantidade=".$qtd." where idProduto=".$idProduto." and idCliente=".$idCliente;
-			if(!mysqli_query($link, $alterar)){
-				die("Não foi possivel alterar a quantidade".mysqli_error($link));
+			$select = "SELECT quantidade FROM produto WHERE idProduto=".$idProduto;
+			$result = mysqli_query($link, $select);
+			$array = mysqli_fetch_array($result);
+			if($array[0] >= $qtd){
+				$alterar = "update carrinho set quantidade=".$qtd." where idProduto=".$idProduto." and idCliente=".$idCliente;
+				if(!mysqli_query($link, $alterar)){
+					die("Não foi possivel alterar a quantidade".mysqli_error($link));
+				}
+			} else {
+				echo "<script>alert('Quantidade de produtos requeridos nao disponivel no estoque');window.location.href='../view/cart.php';</script>";
 			}
 		}
 

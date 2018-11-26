@@ -127,7 +127,7 @@
                                                             echo "<span>";
 								echo "<span>R$ ".number_format($livro[3], 2, ',', '')."</span>";
 								echo "<label>Quantidade </label>";
-								echo "<form method='POST' action='verificarLogin.php?id=".$id."' style='display: inline;'>";
+								echo "<form method='POST' action='../controller/verificarLogin.php?id=".$id."&quant=".$livro[7]."' style='display: inline;'>";
 									echo "<input type='text' name='qtd' value='1'/>";
 							?>
 									<button type="submit" class="btn btn-fefault cart">

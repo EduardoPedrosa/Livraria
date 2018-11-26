@@ -10,7 +10,7 @@
 	//Conectar BD
 	$connection = new Connection("localhost", "root", "", "Livraria");
 	$link = $connection->getLink();
-	
+
 	//Realizar Operação
 	$carrinhoDAO = new CarrinhoDAO();
 	$carrinhoDAO->alterar($link, $qtd, $idProduto, $idCliente);
