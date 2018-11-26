@@ -70,7 +70,7 @@
 									}
 								}
 								if((isset($_SESSION["login"])) or (isset($_SESSION["admin"]))){
-									echo "<li><a href='sair.php'><i class='fa fa-user'></i> Sair</a></li>";
+									echo "<li><a href='../controller/sair.php'><i class='fa fa-user'></i> Sair</a></li>";
 								}
 							?>
 							</ul>
