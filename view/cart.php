@@ -156,7 +156,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
-							<a class="btn btn-default update" href="pagamento.php">Seguir compra</a>
+							<?php
+								if (mysqli_num_rows($itensCarrinho)>0){
+									echo '<a class="btn btn-default update" href="pagamento.php">Seguir compra</a>';
+								}
+							?>
 					</div>
 				</div>
 			</div>

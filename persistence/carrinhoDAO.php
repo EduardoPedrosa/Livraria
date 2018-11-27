@@ -9,11 +9,11 @@
 			return $r;
 		}
 
-		function cadastrar($link, $quantidade, $idCliente, $idProduto){
-			$select = "SELECT * FROM carrinho WHERE idProduto=".$idProduto." and idCliente=".$idCliente;
+		function cadastrar($link, $c1){
+			$select = "SELECT * FROM carrinho WHERE idProduto=".$c1->getIdProduto()." and idCliente=".$c1->getIdCliente();
 			$verifica = mysqli_query($link, $select);
 			if (mysqli_num_rows($verifica)<=0){
-				$insert = "insert into carrinho (quantidade,idCliente,idProduto) values(".$quantidade.", ".$idCliente.", ".$idProduto.")";
+				$insert = "insert into carrinho (quantidade,idCliente,idProduto) values(".$c1->getQtd().", ".$c1->getIdCliente().", ".$c1->getIdProduto().")";
 				if(!mysqli_query($link, $insert)){
 					die("Não foi possivel adicionar item".mysqli_error($link));
 				}
@@ -23,12 +23,12 @@
 			}
 		}
 
-		function alterar($link, $qtd, $idProduto, $idCliente){
-			$select = "SELECT quantidade FROM produto WHERE idProduto=".$idProduto;
+		function alterar($link, $c1){
+			$select = "SELECT quantidade FROM produto WHERE idProduto=".$c1->getIdProduto();
 			$result = mysqli_query($link, $select);
 			$array = mysqli_fetch_array($result);
-			if($array[0] >= $qtd){
-				$alterar = "update carrinho set quantidade=".$qtd." where idProduto=".$idProduto." and idCliente=".$idCliente;
+			if($array[0] >= $c1->getQtd()){
+				$alterar = "update carrinho set quantidade=".$c1->getQtd()." where idProduto=".$c1->getIdProduto()." and idCliente=".$c1->getIdCliente();
 				if(!mysqli_query($link, $alterar)){
 					die("Não foi possivel alterar a quantidade".mysqli_error($link));
 				}
