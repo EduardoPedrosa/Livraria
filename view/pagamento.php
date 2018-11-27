@@ -91,16 +91,16 @@
 	
 	
 	<section id="form"><!--form-->	
-		<form method="POST" action="../controller/C_Compra.php">
+		<form method="POST" action="../controller/C_Cadastro_Compra.php">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4 col-sm-offset-1">
 						<div class="login-form"><!--login form-->
 							<h2>Preencha as informações do cartão</h2>
-								<input type="text" name="NumCartao" placeholder="Numero do cartão" />
-								<input type="text" name="NomCartao" placeholder="Nome impresso no cartão" />
-								<input type="text" name="CodigoSeguranca" placeholder="Codigo de segurança" />  
-								<input type="number" min="1" name="NumParcelas" placeholder="Número de parcelas" />
+								<input type="text" name="numCartao" placeholder="Numero do cartão" required/>
+								<input type="text" name="nomCartao" placeholder="Nome impresso no cartão" required/>
+								<input type="text" name="codigoSeguranca" placeholder="Codigo de segurança" required/>  
+								<input type="number" min="1" name="numParcelas" placeholder="Número de parcelas" required/>
 						</div><!--/login form-->
 					</div>
 					<div class="col-sm-1"></div>
@@ -115,7 +115,7 @@
 								$transportadoras = new TransportadoraDAO();
 								$transport = $transportadoras->consultar($link);
 								while($transportadora = mysqli_fetch_array($transport)){
-									echo '<input type="radio" name="transportadora" value="'.$transportadora[0].'"/> 
+									echo '<input type="radio" name="transportadora" value="'.$transportadora[0].'" required/> 
 										 '.$transportadora[1].' - R$'.number_format($transportadora[2], 2, ',', '').'
 										  - '.$transportadora[3].' dias uteis<br>';;
 								}

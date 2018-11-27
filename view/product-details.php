@@ -141,7 +141,7 @@
 							    	if($livro[7] > 1){
 									echo "Em estoque</p>";
 								} else {
-									echo "Esgotado</p>";
+									echo "<span style='color: #aa0000; font-weight: bold;'>Esgotado</span></p>";
 								}
 							    echo "<p><b>Condição: </b>".$livro[4]."</p>";
 							?>
