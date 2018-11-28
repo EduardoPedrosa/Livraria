@@ -71,7 +71,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<nav class="menu">
+						<nav class="menu2">
 							<ul>
 								<li class="conta"><a href="conta.php">Perfil</a></li>
 								<li class="pedido"><a href="pedidos.php">Meus pedidos</a></li>
@@ -84,47 +84,6 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	
-	<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div>
-					<div class="login-form"><!--login form-->
-						<h2>Seus dados</h2>
-						<form action="../controller/C_Altera_Cliente.php" method="POST">
-							<?php 
-								$vet = $_SESSION["login"];
-								$nome = $vet[1];
-								$cpf = $vet[2];
-								$email = $vet[3];
-								$senha = $vet[4];
-								$rua = $vet[5];
-								$numero = $vet[6];
-								$bairro = $vet[7];
-								$cidade = $vet[8];
-								$telefone = $vet[9];
-								echo "Nome: <input type='text' name ='Cnome' value='".$nome."'/>";
-								echo "CPF: <input type='text' name='Ccpf' value='".$cpf."'/>";
-								echo "Email: <input type='email' name='Cemail' value='".$email."' readonly/>";
-								echo "Senha: <input type='password' name='Csenha' value='".$senha."' readonly/>";
-								echo "Rua: <input type='text' name='Crua' value='".$rua."' />";
-								echo "Numero: <input type='text' name='Cnumero' value='".$numero."'/>";
-								echo "Bairro: <input type='text' name='Cbairro' value='".$bairro."' />";
-								echo "Cidade: <input type='text' name='Ccidade' value='".$cidade."'/>";
-								echo "Telefone: <input type='text' name='Ctelefone' value='".$telefone."' />";
-							?>
-							<div class="btn-group">
-								<button type="submit" class="btn btn-default">Salvar alterações</button>
-								<button type="button" onclick="window.location='../controller/C_Exclui_Cliente.php'" class="btn btn-default">Excluir cadastro</button>
-								<button type="button" onclick="window.location='index.php'" class="btn btn-default">Cancelar</button>
-							</div>
-						</form>
-					</div><!--/login form-->
-				</div>
-			</div>
-		</div>
-	</section><!--/form-->
-
     <script src="js/jquery.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>

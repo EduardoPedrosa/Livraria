@@ -2427,7 +2427,59 @@ h2.title {
   left: 5px
 } 
 
+.menu {
+  width: 100%;
+  margin: 0 auto;
+  margin-left: 0;
+  font: 300 100% 'Helvetica Neue', Helvetica, Arial;
+}
 
+.menu ul, .menu2 ul {
+  text-align: center;
+}
+
+.menu ul li, .menu2 ul li { 
+  display: inline;
+  text-align: center;
+}
+
+.menu ul li a, .menu2 ul li a{
+  display: inline-block;
+  width: 49%;
+  padding: .75rem 0;
+  margin: 0;
+  text-decoration: none;
+  color: #333;
+}
+
+.conta:hover ~ hr {
+  margin-left: 0;
+}
+
+.pedido:hover ~ hr {
+  margin-left: 49%;
+}
+
+
+.menu ul hr {
+  height: .25rem;
+  width: 50%;
+  margin: 0;
+  background: #FE980F;
+  border: none;
+  transition: .3s ease-in-out;
+}
+
+.menu2 ul hr {
+  height: .25rem;
+  width: 50%;
+  margin-left: 49%;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: #FE980F;
+  border: none;
+  transition: .3s ease-in-out;
+}
 
 /*************************
 ******* Contact CSS ********
