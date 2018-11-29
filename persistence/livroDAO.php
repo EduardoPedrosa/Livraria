@@ -22,6 +22,24 @@
 			return $result;
 		}
 
+		function consultarPorPedido($link, $idPedido){
+			$select = "SELECT p.capa, p.nome, p.autor, p.preco, cp.quantidade, p.condicao FROM compra as c join compra_produto as cp join 
+					produto as p on (c.idCompra = cp.idCompra AND cp.idProduto = p.idProduto) WHERE c.idCompra =".$idPedido;
+			$r = mysqli_query($link, $select);
+			if(!$r){
+				die("Não foi possível consultar os livros do pedido".mysqli_error($link));
+			}
+			return $r;
+		}
+		function consultarPreco($link, $id){
+			$consulta = "select preco from produto where idProduto ='".$id."'";
+			$r = mysqli_query($link, $consulta);
+			if(!$r){
+				die("Não foi possivel consultar o livro".mysqli_error($link));
+			}
+			$resultado = mysqli_fetch_array($r);
+			return $resultado[0];
+		}
 		function consultarTodos($link,$chave){
 			if($chave == ""){
 				$consulta = "select idProduto, nome, preco, capa, autor, condicao, quantidade from produto";

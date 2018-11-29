@@ -8,5 +8,14 @@
 			}
 			return $r;
 		}
+		
+		function consultarPorId($link, $id){
+			$select = "SELECT * from transportadora WHERE idTransportadora=".$id;
+			$r = mysqli_query($link, $select);
+			if(!$r){
+				die("Não foi possível consultar a transportadora".mysqli_error($link));
+			}
+			return $r;
+		}
 	}
 ?>

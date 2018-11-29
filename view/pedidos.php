@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 	session_start();
+	include_once("../persistence/compraDAO.php");
+	include_once("../persistence/connection.php");
+	include_once("../persistence/transportadoraDAO.php");
 ?>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | Livraria</title>
+    <title>Meus Pedidos | Livraria</title>
 	<link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -78,12 +81,84 @@
 								<hr />
 							</ul>
 						</nav>
+					</div>	
+				</div>
+			</div>
+		</div> 
+	</header>
+		
+	
+	<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div><!--/header-bottom-->
-	</header><!--/header-->
+    </header><!--/header-->
+    <section id="cart_items">
+        <div class="container">
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="description">Número da compra</td>
+                            <td class="price">Data</td>
+							<td class="price">Preço</td>
+                            <td class="condition">Transportadora</td>
+							<td class="description"></td>
+							<?php 
+								$vet = $_SESSION["login"];
+								$idCliente = $vet[0];
+								$connection = new Connection("localhost", "root", "", "Livraria");
+								$link = $connection->getLink();
+								$compraDAO = new compraDAO();
+								$transpDAO = new transportadoraDAO();
+								//pegando dados da compra
+								$compras = $compraDAO->consultarComprasCliente($link,$idCliente);
+								while($row = mysqli_fetch_array($compras)){
+									$idCompra = $row[0];
+									echo '<body><tr>';
+										echo '<td class="cart_description">';
+											echo '<h4>'.$idCompra.'</h4>';
+										echo'</td>';
+										echo '<td class="cart_price">';
+											echo '<p>'.$row[7].'</p>';
+										echo'</td>';
+										//calculando preco total da compra
+										$preco = $compraDAO->calcularPrecoTotal($link, $idCompra);
+										echo '<td class="cart_price">';
+											echo '<p>R$'.number_format($preco, 2, ',', '').'</p>';
+										echo '</td>';
+										//consultando transportadora
+										$result = $transpDAO->consultarPorId($link, $row[6]);
+										$transp = mysqli_fetch_array($result);
+										$nomeTransp = $transp[1];
+										echo '<td class="cart_description">';
+											echo'<p>'.$nomeTransp.'</p>';
+										echo '</td>';
+										echo '<td class="cart_delete">';
+											echo'<a href="detalhesPedido.php?id='.$idCompra.'"type="submit"  style="margin-top: 20px" class = "btn btn-default add-to-cart"  >Ver Detalhes</a>';
+										echo '</td>';
+									echo '</tr></body>';
+								}
+							?>	
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</section>		
+				
     <script src="js/jquery.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
