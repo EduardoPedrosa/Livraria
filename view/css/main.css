@@ -1498,11 +1498,22 @@ h2.title {
   margin-right: 5px;
 }
 
-.login-form button {
+.login-form button{
   margin-top: 23px;
 }
 
-.login-form button, .signup-form form button {
+.login-form button, .signup-form form button{
+  background: #FE980F;
+  border: medium none;
+  border-radius: 0;
+  color: #FFFFFF;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  padding: 6px 25px;
+}
+
+.botaoExcluir{
+  margin-top: 23px;
   background: #FE980F;
   border: medium none;
   border-radius: 0;
@@ -1672,12 +1683,11 @@ h2.title {
   overflow: hidden;
 }
 
-
 .cart_delete a {
   background:#F0F0E9;
-  color: #FFFFFF;
+  color: #888;
   padding: 5px 7px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .cart_delete a:hover {

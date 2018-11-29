@@ -18,7 +18,7 @@
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/price-range.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -101,15 +101,16 @@
                                             $link = $connection->getLink();
                     
                                             $livDAO = new livroDAO();
+                                            
                                             $result = $livDAO->consultarPorPedido($link,$idPedido);
                                             while($row = mysqli_fetch_array($result)){
                                                 echo '<tbody><tr>';
                                                     echo'<td class="cart_product">';
-                                                        echo'<a href=""><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode( $row[0]) . '"/>';
+                                                        echo'<a style= "margin-left:-10px"href=""><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode( $row[0]) . '"/>';
                                                     echo '</td>';
                                                     echo'<td class="cart_description">';
-                                                        echo'<h4 style = "margin-left:60px">'.$row[1].'</h4>';
-                                                        echo'<p style = "margin-left:63px">'.$row[2].'</p>';
+                                                        echo'<h4 style = "margin-left:40px">'.$row[1].'</h4>';
+                                                        echo'<p style = "margin-left:43px">'.$row[2].'</p>';
                                                     echo'</td>';
                                                     echo'<td class="cart_price">';
                                                         echo'<p>R$'.number_format($row[3], 2, ',', '').'</p>';
@@ -130,18 +131,25 @@
                                             <td>
                                                 <th>
                                                     <h4>Preço Total:
-                                                    <?php
-                                                        $connection = new Connection("localhost", "root", "", "Livraria");
-                                                        $link = $connection->getLink();
-                                                        $compraDAO = new compraDAO();
-                                                        $precoTotal = $compraDAO->calcularPrecoTotal($link, $idPedido);
-                                                        echo number_format($precoTotal, 2, '.', '').'</h4>';
-                                                    ?>
+                                                        <?php
+                                                            $connection = new Connection("localhost", "root", "", "Livraria");
+                                                            $link = $connection->getLink();
+                                                            $compraDAO = new compraDAO();
+                                                            $precoTotal = $compraDAO->calcularPrecoTotal($link, $idPedido);
+                                                            echo number_format($precoTotal, 2, '.', '');
+                                                        ?>
+                                                    </h4>
                                                     <h4>Data de Realização do Pedido: 
-                                                    <?php
-                                                        $pedido = $compraDAO->consultarPorId($link, $idPedido);
-                                                        echo $pedido[7].'</h4>';
-                                                    ?>    
+                                                        <?php
+                                                            $pedido = $compraDAO->consultarPorId($link, $idPedido);
+                                                            echo $pedido[7];
+                                                        ?>
+                                                    </h4>
+                                                    <h4>Parcelado em:
+                                                        <?php
+                                                            echo $pedido[6].' vezes(s)';
+                                                        ?>
+                                                    </h4>
                                                 </th>                                           
                                             </td>
                                         </tfoot>
@@ -152,10 +160,10 @@
                         <form enctype="multipart/form-data" action="" method = "POST">
                             <?php
                                 echo '<input type="hidden" name = "identificador" value = "'.$idPedido.'"/>';
-                                echo '<h4>Dados do cartão</h4>';
+                                echo '<h4>Dados do Cartão</h4>';
                                 echo 'Número <input type="text" name="nCartao" value="'.$pedido[2].'"/>';
 								echo 'Nome: <input type="text" name="nomeCartao" value="'.$pedido[3].'"/>';
-								echo 'Código de Segurança: <input type="text" name="cvv" value="'.$pedido[4].'"/><br>';
+                                echo 'Código de Segurança: <input type="text" name="cvv" value="'.$pedido[4].'"/><br>';
                                 echo '<h4>Dados de Transporte</h4>';    
                                 $transportadoras = new TransportadoraDAO();
 								$transport = $transportadoras->consultar($link);
@@ -175,7 +183,9 @@
                             
                             <div class="btn-group">
                                 <button type="submit" class="btn btn-default">Alterar pedido</button>
-                                <button type="button" onclick="window.location=" class="btn btn-default">Excluir pedido</button>
+                                <?php
+                                    echo '<a class="btn btn-default botaoExcluir" href="../controller/C_Excluir_Compra.php?id='.$idPedido.'">Excluir pedido</a>';
+                                ?>
                             </div>
                         </form>
 					</div>

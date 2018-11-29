@@ -12,13 +12,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Meus Pedidos | Livraria</title>
-	<link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="css/price-range.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/responsive.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -125,6 +125,11 @@
 								$transpDAO = new transportadoraDAO();
 								//pegando dados da compra
 								$compras = $compraDAO->consultarComprasCliente($link,$idCliente);
+								if (mysqli_num_rows($compras)<=0){
+									echo '<tr>';
+										echo '<td class="cart_product">Você ainda não realizou nenhum pedido</td>';
+									echo '</tr>';
+								}
 								while($row = mysqli_fetch_array($compras)){
 									$idCompra = $row[0];
 									echo '<body><tr>';

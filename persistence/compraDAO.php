@@ -24,8 +24,8 @@
 					die("Não foi possivel salvar o cadastro".mysqli_error($link));
 				}
 				$select = "select quantidade from produto where idProduto ='".$row[1]."'";
-				$result = mysqli_query($link, $select);
-				$array = mysqli_fetch_array($result);
+				$resultado = mysqli_query($link, $select);
+				$array = mysqli_fetch_array($resultado);
 				$qtd = $array[0];
 				
 				$alterar = "update produto set quantidade='".($qtd - $row[0])."' where idProduto='".$row[1]."'";
@@ -33,7 +33,6 @@
 					die("Não foi possivel alterar o livro".mysqli_error($link));
 				}
 			}
-
 		}
 
 		function consultarComprasCliente($link,$id){
@@ -76,8 +75,31 @@
 		function alterar($link, $livro, $id){
 		}
 		
-		function excluir($link, $id){
-
+		function excluir($link, $idCompra){
+			$select = "SELECT p.idProduto, cp.quantidade from compra as c join compra_produto as cp join produto as p
+					on (c.idCompra = cp.idCompra AND p.idProduto = cp.idProduto) WHERE c.idCompra=".$idCompra;
+			$r = mysqli_query($link, $select);
+			if(!$r){
+				die("Não foi possível encontrar os produtos do pedido".mysqli_error($link));
+			}
+			//excluindo de compra_produto e atualizando estoque de produtos
+			while($row = mysqli_fetch_array($r)){
+				$idProduto = $row[0];
+				$delete = "DELETE FROM compra_produto WHERE idCompra =".$idCompra." AND idProduto=".$idProduto;
+				if(!mysqli_query($link, $delete)){
+					die("Não foi possível excluir o produto".mysqli_error($link));
+				}
+				$quantidade = $row[1];
+				$updateProd = "UPDATE produto SET quantidade = quantidade + ".$quantidade." WHERE idProduto =".$idProduto;
+				if(!mysqli_query($link, $updateProd)){
+					die("Não foi possível alterar a quantidade de estoque".mysqli_error($link));
+				} 
+			}
+			//finalmente excluindo a compra
+			$deleteCompra = "DELETE FROM compra WHERE idCompra=".$idCompra;
+			if(!mysqli_query($link, $deleteCompra)){
+				die("Não foi possível excluir a compra".mysqli_error());
+			}
 		}
 	}
 ?>
