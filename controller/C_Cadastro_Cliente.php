@@ -24,5 +24,5 @@
 	//Realizar Operação
 	$funcDAO = new ClienteDAO();
 	$funcDAO->cadastrar($link, $f1);
-		echo"<script language='javascript' type='text/javascript'>window.location.href='../view/login.php';window.alert('Cadastrado com sucesso');</script>";
+	echo"<script language='javascript' type='text/javascript'>window.location.href='../view/login.php';window.alert('Cadastrado com sucesso');</script>";
 ?>

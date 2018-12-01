@@ -23,7 +23,7 @@
 		}
 
 		function consultarPorPedido($link, $idPedido){
-			$select = "SELECT p.capa, p.nome, p.autor, p.preco, cp.quantidade, p.condicao FROM compra as c join compra_produto as cp join 
+			$select = "SELECT p.capa, p.nome, p.autor, p.preco, cp.quantidade, p.condicao, p.idProduto FROM compra as c join compra_produto as cp join 
 					produto as p on (c.idCompra = cp.idCompra AND cp.idProduto = p.idProduto) WHERE c.idCompra =".$idPedido;
 			$r = mysqli_query($link, $select);
 			if(!$r){

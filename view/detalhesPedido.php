@@ -103,28 +103,39 @@
                                             $livDAO = new livroDAO();
                                             
                                             $result = $livDAO->consultarPorPedido($link,$idPedido);
+                                            $qtdLivrosExcluidos = 0;
                                             while($row = mysqli_fetch_array($result)){
-                                                echo '<tbody><tr>';
-                                                    echo'<td class="cart_product">';
-                                                        echo'<a style= "margin-left:-10px"href=""><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode( $row[0]) . '"/>';
-                                                    echo '</td>';
-                                                    echo'<td class="cart_description">';
-                                                        echo'<h4 style = "margin-left:40px">'.$row[1].'</h4>';
-                                                        echo'<p style = "margin-left:43px">'.$row[2].'</p>';
-                                                    echo'</td>';
-                                                    echo'<td class="cart_price">';
-                                                        echo'<p>R$'.number_format($row[3], 2, ',', '').'</p>';
-                                                    echo'</td>';
-                                                    echo'<td class="cart_price">';
-                                                        echo '<p>'.$row[4].'</p>';                  
-                                                    echo'</td>';
-                                                    echo'<td class="cart_price">';
-                                                        echo'<p>'.$row[5].'</p>';
-                                                    echo'</td>';
-                                                    echo'<td class="cart_delete">';
-                                                        echo'<a class="cart_quantity_delete" style="margin-left:10px" href="../controller/C_Excluir_Livro.php?id='.$idPedido.'"><i class="fa fa-times"></i></a>';
-                                                    echo'</td>';
-                                                echo'</tr></body>';
+                                                if(isset($_SESSION[$row[6].$idPedido.'*'])){
+                                                    ++$qtdLivrosExcluidos;
+                                                }
+                                            }
+                                            $result = $livDAO->consultarPorPedido($link, $idPedido);
+                                            while($row = mysqli_fetch_array($result)){
+                                                if(!isset($_SESSION[$row[6].$idPedido.'*'])){
+                                                    echo '<tbody><tr>';
+                                                        echo'<td class="cart_product">';
+                                                            echo'<a style= "margin-left:-10px"href=""><img class="cart-img" src="data:image/jpeg;base64,' . base64_encode( $row[0]) . '"/>';
+                                                        echo '</td>';
+                                                        echo'<td class="cart_description">';
+                                                            echo'<h4 style = "margin-left:40px">'.$row[1].'</h4>';
+                                                            echo'<p style = "margin-left:43px">'.$row[2].'</p>';
+                                                        echo'</td>';
+                                                        echo'<td class="cart_price">';
+                                                            echo'<p>R$'.number_format($row[3], 2, ',', '').'</p>';
+                                                        echo'</td>';
+                                                        echo'<td class="cart_price">';
+                                                            echo '<p>'.$row[4].'</p>';                  
+                                                        echo'</td>';
+                                                        echo'<td class="cart_price">';
+                                                            echo'<p>'.$row[5].'</p>';
+                                                        echo'</td>';
+                                                        if($qtdLivrosExcluidos < mysqli_num_rows($result)-1){ //se houver apenas 1 livro não faz sentido excluí-lo por aqui, mas sim excluir o pedido
+                                                            echo'<td class="cart_delete">';
+                                                                echo'<a class="cart_quantity_delete" style="margin-left:10px" href="../controller/C_Excluir_Temporariamente_Livro.php?idProduto='.$row[6].'&idPedido='.$idPedido.'"><i class="fa fa-times"></i></a>';
+                                                            echo'</td>';
+                                                        }
+                                                    echo'</tr></body>';
+                                                }
                                             }
                                         ?>
                                         <tfoot>
@@ -136,7 +147,14 @@
                                                             $link = $connection->getLink();
                                                             $compraDAO = new compraDAO();
                                                             $precoTotal = $compraDAO->calcularPrecoTotal($link, $idPedido);
-                                                            echo number_format($precoTotal, 2, '.', '');
+                                                            //atualizando o preco caso haja algum item retirado
+                                                            $result = $livDAO->consultarPorPedido($link,$idPedido);
+                                                            while($row = mysqli_fetch_array($result)){
+                                                                if(isset($_SESSION[$row[6].$idPedido.'*'])){
+                                                                    $precoTotal = $precoTotal - $row[4]*$row[3];
+                                                                }
+                                                            }                               
+                                                            echo 'R$'.number_format($precoTotal, 2, '.', '');
                                                         ?>
                                                     </h4>
                                                     <h4>Data de Realização do Pedido: 
@@ -147,7 +165,7 @@
                                                     </h4>
                                                     <h4>Parcelado em:
                                                         <?php
-                                                            echo $pedido[6].' vezes(s)';
+                                                            echo $pedido[5].' vez(es) de R$'.number_format(($precoTotal/$pedido[5]), 2, '.', '');
                                                         ?>
                                                     </h4>
                                                 </th>                                           
@@ -157,7 +175,7 @@
                                 </div>
                             </div>
                         </section>
-                        <form enctype="multipart/form-data" action="" method = "POST">
+                        <form enctype="multipart/form-data" action="../controller/C_Altera_Compra.php" method = "POST">
                             <?php
                                 echo '<input type="hidden" name = "identificador" value = "'.$idPedido.'"/>';
                                 echo '<h4>Dados do Cartão</h4>';
@@ -180,11 +198,11 @@
                                     }
 								}
                             ?>
-                            
                             <div class="btn-group">
                                 <button type="submit" class="btn btn-default">Alterar pedido</button>
                                 <?php
                                     echo '<a class="btn btn-default botaoExcluir" href="../controller/C_Excluir_Compra.php?id='.$idPedido.'">Excluir pedido</a>';
+                                    echo '<a class="btn btn-default botaoExcluir" href="../controller/C_Cancelar_Alteracoes_Compra.php?id='.$idPedido.'">Cancelar</a>';
                                 ?>
                             </div>
                         </form>

@@ -72,7 +72,37 @@
 			return $row;
 		}
 
-		function alterar($link, $livro, $id){
+		function alterar($link, $idPedido, $compra, $livros){
+			//primeiro verificar se há um livro excluido do pedido
+			session_start();
+			while($row = mysqli_fetch_array($livros)){
+				if(isset($_SESSION[$row[6].$idPedido.'*'])){
+					//primeiro pegando a quantidade para adicionar ao estoque
+					$selectQuantidade = "SELECT quantidade FROM compra_produto WHERE idCompra=".$idPedido." AND idProduto=".$row[6];
+					$r = mysqli_query($link, $selectQuantidade);
+					if(!$r){
+						die("Não foi possível realizar a alteração".mysqli_error($link));
+					}
+					$quantidade = mysqli_fetch_array($r);
+					$updateProd = "UPDATE produto SET quantidade = quantidade + ".$quantidade[0]." WHERE idProduto =".$row[6];
+					if(!mysqli_query($link, $updateProd)){
+						die("Não foi possível alterar a quantidade de estoque dos livros".mysqli_error($link));
+					} 
+					//excluindo a coluna de compra_produto
+					$deleteCP = "DELETE FROM compra_produto WHERE idCompra=".$idPedido." AND idProduto=".$row[6];
+					if(!mysqli_query($link, $deleteCP)){
+						die("Não foi possível realizar a alteração de compra_produto".mysqli_error($link));
+					}
+					unset($_SESSION[$row[6].$idPedido.'*']);
+				}
+			}
+			//alterando os dados em compra
+			$update = "UPDATE compra SET numeroCartao='".$compra->getNumCartao()."', nomeCartao = '".$compra->getNomCartao()."',
+					codigoSeguranca='".$compra->getCodigoSeguranca()."', idTransportadora=".$compra->getIdTransportadora()."
+					WHERE idCompra=".$idPedido;
+			if(!mysqli_query($link, $update)){
+				die("Não foi possível realizar a alteração".mysqli_error($link));
+			}	
 		}
 		
 		function excluir($link, $idCompra){
