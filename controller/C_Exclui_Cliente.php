@@ -13,5 +13,6 @@
 	$login = $_SESSION['login'];
 	$email = $login[3];
 	$clienteDAO->excluir($link, $email);
-	echo"<script language='javascript' type='text/javascript'>window.location.href='../view/index.php';window.alert('Excluido com sucesso'";
+	echo "aqui";
+	echo"<script language='javascript' type='text/javascript'>window.location.href='../view/index.php';window.alert('Excluido com sucesso');</script>";
 ?>
