@@ -92,12 +92,12 @@
 					<div class="login-form"><!--login form-->
 						<h2>Cadastre um livro novo</h2>
 						<form enctype="multipart/form-data" action="../controller/C_Cadastro_Livro.php" method = "POST">
-							<input type="text" name="nome" placeholder="Nome" />
+							<input type="text" name="nome" placeholder="Nome" required/>
 							<input type="text" name="autor" placeholder="Autor" />
-                        	<input type="text" name="descricao" placeholder="Descrição" />
-                            <input type="text" name="condicao" placeholder="Condição" />
-							<input type="text" name="preco" placeholder="Preço " />
-							<input type="number" name="quantidade" placeholder="Quantidade "/>
+                        	<input type="text" name="descricao" placeholder="Descrição"/>
+                            <input type="text" name="condicao" placeholder="Condição" required/>
+							<input type="text" name="preco" placeholder="Preço " required/>
+							<input type="number" name="quantidade" placeholder="Quantidade" required/>
 							<span class="text-success ">Capa do Livro</span> 
 							<div><input name="capa" type="file"/></div>
 							<button type="submit" class="btn btn-default">Cadastrar</button>
