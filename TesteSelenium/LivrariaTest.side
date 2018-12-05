@@ -1,0 +1,1426 @@
+{
+  "id": "6b92d53c-3737-4d52-b033-d2f9a6cb0482",
+  "version": "1.1",
+  "name": "LivrariaTest",
+  "url": "http://localhost/Livraria/Codigo/view/index.php",
+  "tests": [{
+    "id": "c61fd972-7834-4ab0-bfc7-184aa0fe1cb1",
+    "name": "CadastroLivro",
+    "commands": [{
+      "id": "136ebb0d-9708-4f9d-beb2-1d35246307cd",
+      "comment": "",
+      "command": "open",
+      "target": "/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d196fab5-2da4-4f1a-ba10-8de40004f157",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e11a66f4-eaf3-4689-a7d4-3cd2e6e4fce5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Admin",
+      "targets": [
+        ["linkText=Admin", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Admin')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'admin.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ade5374a-aa39-4424-b3b9-10d48c9ed65e",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "54386279-e19a-42f2-8b24-5b6c77fb9657",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin@admin.com"
+    }, {
+      "id": "b8392d6c-e8ec-4fa5-b1af-3acad796fd82",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "30e7a827-f936-4048-a346-88a10d8f2b32",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "835c8f39-ce8a-4a8d-aaa4-4463c17435ff",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Cadastrar Livro",
+      "targets": [
+        ["linkText=Cadastrar Livro", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Cadastrar Livro')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'cadastrarLivro.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04f1f1e3-660f-4187-a1bb-10b6a6202ca2",
+      "comment": "",
+      "command": "click",
+      "target": "name=nome",
+      "targets": [
+        ["name=nome", "name"],
+        ["css=input[name=\"nome\"]", "css"],
+        ["css=form > input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='nome']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c90df6d-375f-4995-bf8d-2ec0063d61c2",
+      "comment": "",
+      "command": "type",
+      "target": "name=nome",
+      "targets": [
+        ["name=nome", "name"],
+        ["css=input[name=\"nome\"]", "css"],
+        ["css=form > input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='nome']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Arquitetura de Computadores"
+    }, {
+      "id": "49342a1a-363b-4b38-bde6-44e5846aa77a",
+      "comment": "",
+      "command": "click",
+      "target": "name=autor",
+      "targets": [
+        ["name=autor", "name"],
+        ["css=input[name=\"autor\"]", "css"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='autor']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffd7900f-d5aa-48b2-a28b-68263a89060f",
+      "comment": "",
+      "command": "type",
+      "target": "name=autor",
+      "targets": [
+        ["name=autor", "name"],
+        ["css=input[name=\"autor\"]", "css"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='autor']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "José Delgado"
+    }, {
+      "id": "d9361874-1628-4dcd-873b-dd1c97a074e1",
+      "comment": "",
+      "command": "type",
+      "target": "name=descricao",
+      "targets": [
+        ["name=descricao", "name"],
+        ["css=input[name=\"descricao\"]", "css"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='descricao']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Livro para aprendizado de Arquitetura de computadores"
+    }, {
+      "id": "c0c679b9-6ea8-4ff9-84b1-ad15da5a0a52",
+      "comment": "",
+      "command": "type",
+      "target": "name=condicao",
+      "targets": [
+        ["name=condicao", "name"],
+        ["css=input[name=\"condicao\"]", "css"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='condicao']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Novo"
+    }, {
+      "id": "0dbf3572-a81a-46b1-add3-349277b306e2",
+      "comment": "",
+      "command": "type",
+      "target": "name=preco",
+      "targets": [
+        ["name=preco", "name"],
+        ["css=input[name=\"preco\"]", "css"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='preco']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "135.30"
+    }, {
+      "id": "3343c128-300f-43ce-9d0c-006a066a34d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css"],
+        ["css=.login-form > form", "css:finder"],
+        ["xpath=//form[@action='../controller/C_Cadastro_Livro.php']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e52c784-3515-43f5-8e22-4406a31e8a11",
+      "comment": "",
+      "command": "click",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(6)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f54ce8bd-7705-4bb5-a3b1-96c04cf7e6b9",
+      "comment": "",
+      "command": "type",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(6)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "50"
+    }, {
+      "id": "49e3fe54-1d6d-40e4-a2bc-3fbe825e9aa4",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(9)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cf8f5e85-e461-4eb0-943a-a9ae0bb52569",
+    "name": "ConsultarLivros",
+    "commands": [{
+      "id": "9e3966b6-4466-4773-96b6-73e1e33a795b",
+      "comment": "",
+      "command": "open",
+      "target": "/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9fe945d5-205b-4124-87d2-fc8c32a1f510",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f1671c8-abd3-4339-afa3-acf79e3ee24c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Admin",
+      "targets": [
+        ["linkText=Admin", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Admin')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'admin.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a54c5246-a436-464d-935d-d23d9990bdd0",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c24b345c-c65a-44df-a139-515f50d71f2c",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin@admin.com"
+    }, {
+      "id": "77837dfa-5fb4-4727-9e5c-32d3fdcc1ac3",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "5964da0c-c09c-41bd-b5f2-674e0ca62671",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "413f8ae8-33d8-4cb0-ae3a-31d0dc7c6562",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Cadastrar Livro",
+      "targets": [
+        ["linkText=Cadastrar Livro", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Cadastrar Livro')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'cadastrarLivro.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbcc4e79-def2-45a1-af8e-3ff830ce07b3",
+      "comment": "",
+      "command": "click",
+      "target": "css=div.signup-form > form > button.btn.btn-default",
+      "targets": [
+        ["css=div.signup-form > form > button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div[3]/div/form/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "77bae349-085c-4b27-bb96-f621790518cc",
+    "name": "AlterarLivro",
+    "commands": [{
+      "id": "a5323015-a742-4816-b770-55732e7476c0",
+      "comment": "",
+      "command": "open",
+      "target": "/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bf7809b2-4c3f-489c-b799-deedb9e65428",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "91136645-b6eb-49f7-b12e-6a25543c1c09",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Admin",
+      "targets": [
+        ["linkText=Admin", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Admin')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'admin.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa36a641-22b5-49b4-8f5b-1c8a389a5103",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3e46d55-9c4d-48d5-8c13-1dd779086a35",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin@admin.com"
+    }, {
+      "id": "5436b65d-ae13-4c3c-9dd0-029bc404edf1",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "06409632-dfb9-4213-8988-dc2ec0c08b58",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "876c2811-cdf5-4bea-b643-bd11165ace0a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Cadastrar Livro",
+      "targets": [
+        ["linkText=Cadastrar Livro", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Cadastrar Livro')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'cadastrarLivro.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4d6fb9a-07ec-4401-bf79-8b336ff13c90",
+      "comment": "",
+      "command": "click",
+      "target": "css=div.signup-form > form > button.btn.btn-default",
+      "targets": [
+        ["css=div.signup-form > form > button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div[3]/div/form/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d259969-8c6f-4065-8dc1-567b83d6b371",
+      "comment": "",
+      "command": "click",
+      "target": "css=tbody:nth-child(3) .btn",
+      "targets": [
+        ["css=tbody:nth-child(3) .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Alterar')])[2]", "xpath:link"],
+        ["xpath=(//a[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//section[@id='cart_items']/div/div/table/tbody[2]/tr/td[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'alterarLivro.php?id=14')]", "xpath:href"],
+        ["xpath=//tbody[2]/tr/td[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1582b4f-0d45-49f4-81a3-3f6fcac6bc45",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "-54,14"
+    }, {
+      "id": "47e51554-2771-4ae4-bca9-d326e2fe39df",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "-54,14"
+    }, {
+      "id": "5283a7ac-9eff-4835-8876-5f60af0853d9",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "-54,14"
+    }, {
+      "id": "9c024ba6-41ff-4b00-9104-ae0dd52dc7cf",
+      "comment": "",
+      "command": "click",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c59a140-24fb-4d7f-8cb2-14a0ad3fe58f",
+      "comment": "",
+      "command": "type",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "49"
+    }, {
+      "id": "5105de9c-0c86-4a6e-bc23-c6f9369e9b01",
+      "comment": "",
+      "command": "type",
+      "target": "name=quantidade",
+      "targets": [
+        ["name=quantidade", "name"],
+        ["css=input[name=\"quantidade\"]", "css"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='quantidade']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "48"
+    }, {
+      "id": "db42d66b-13bf-4170-bb87-d4bd4823e5a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3dbaa4e8-ce18-447f-8d0b-347249f6e480",
+    "name": "ExcluirLivro",
+    "commands": [{
+      "id": "bdf5f365-060c-41a3-a971-b440a1c2fab7",
+      "comment": "",
+      "command": "open",
+      "target": "/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "389e4dd6-60b5-4ef9-98d3-a95e061635fe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04a909f7-cdea-488c-b1a8-ec65d0df925c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Admin",
+      "targets": [
+        ["linkText=Admin", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Admin')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'admin.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "337bf315-3396-4bd2-aed1-5f0d25345ae2",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38572ee8-d29a-48ba-81f8-cfea733c41fe",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin@admin.com"
+    }, {
+      "id": "ec9de6d6-1b19-44c6-8348-7dd45abad61b",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "cb456ebe-dc89-47c9-ac2a-06eb5e744ffe",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e11692d-887e-437a-b045-5e97c072ec2b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Cadastrar Livro",
+      "targets": [
+        ["linkText=Cadastrar Livro", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Cadastrar Livro')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'cadastrarLivro.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e8539fe-9907-49e4-9940-408b8269a0b8",
+      "comment": "",
+      "command": "click",
+      "target": "css=div.signup-form > form > button.btn.btn-default",
+      "targets": [
+        ["css=div.signup-form > form > button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div[3]/div/form/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6599095f-9262-4298-912e-8d9ff9ff4b61",
+      "comment": "",
+      "command": "click",
+      "target": "css=tbody:nth-child(6) .cart_quantity_delete",
+      "targets": [
+        ["css=tbody:nth-child(6) .cart_quantity_delete", "css:finder"],
+        ["xpath=//section[@id='cart_items']/div/div/table/tbody[5]/tr/td[6]/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../controller/C_Excluir_Livro.php?id=21')]", "xpath:href"],
+        ["xpath=//tbody[5]/tr/td[6]/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "70af7e06-59d9-434b-8d33-1cbe2af295a3",
+    "name": "CadastrarCompra",
+    "commands": [{
+      "id": "29e5bc67-37ea-4fc8-ae37-76a727f08941",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3855a995-ec33-4efe-ac6a-942391e97f4b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d9100a0-1e4c-4140-88d2-5e0994a5f4ef",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'login.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "914cb67f-2820-4041-a3e6-a6b111932b0e",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da5f7657-d7a7-4fef-b677-61786d7fa8e8",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "a@a.com"
+    }, {
+      "id": "b3df75b5-3742-4fec-b38f-4e1b992ab4d1",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=.login-form input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "a"
+    }, {
+      "id": "f9636746-6535-4657-a1fc-1540442681ab",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(3)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea0fc118-293c-4a06-b6d6-0abb556584a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(3) .btn",
+      "targets": [
+        ["css=.col-sm-4:nth-child(3) .product-overlay .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Ver detalhes')])[4]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'product-details.php?id=14')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div[2]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c6a0fad-28ca-4278-87e7-4e03df9f19aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "84e6604c-1e0a-4fff-af53-d4e34dd9b0fa",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Carrinho",
+      "targets": [
+        ["linkText=Carrinho", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Carrinho')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'cart.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b66e2213-02c1-4aab-8cff-6d77a6cf9a0f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Seguir compra",
+      "targets": [
+        ["linkText=Seguir compra", "linkText"],
+        ["css=.update", "css:finder"],
+        ["xpath=//a[contains(text(),'Seguir compra')]", "xpath:link"],
+        ["xpath=//section[@id='do_action']/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'pagamento.php')]", "xpath:href"],
+        ["xpath=//section[2]/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20921747-92be-41aa-b7fd-6dd361cc986d",
+      "comment": "",
+      "command": "click",
+      "target": "name=numCartao",
+      "targets": [
+        ["name=numCartao", "name"],
+        ["css=input[name=\"numCartao\"]", "css"],
+        ["css=.login-form > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='numCartao']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/form/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e31cc9bd-2030-49d0-b1c8-1297aa85a3e0",
+      "comment": "",
+      "command": "type",
+      "target": "name=numCartao",
+      "targets": [
+        ["name=numCartao", "name"],
+        ["css=input[name=\"numCartao\"]", "css"],
+        ["css=.login-form > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='numCartao']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/form/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "1fa5a521-ea55-42b4-8aae-ad1367e7a06e",
+      "comment": "",
+      "command": "type",
+      "target": "name=nomCartao",
+      "targets": [
+        ["name=nomCartao", "name"],
+        ["css=input[name=\"nomCartao\"]", "css"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='nomCartao']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/form/div/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "209e132f-dc9f-448e-875e-f224507cfbef",
+      "comment": "",
+      "command": "type",
+      "target": "name=codigoSeguranca",
+      "targets": [
+        ["name=codigoSeguranca", "name"],
+        ["css=input[name=\"codigoSeguranca\"]", "css"],
+        ["css=.login-form > input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='codigoSeguranca']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/form/div/div/div/div/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "2822ab33-635f-4d76-afe1-ee4fc439b714",
+      "comment": "",
+      "command": "type",
+      "target": "name=numParcelas",
+      "targets": [
+        ["name=numParcelas", "name"],
+        ["css=input[name=\"numParcelas\"]", "css"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='numParcelas']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/form/div/div/div/div/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "780744ab-8728-427e-a23f-c1b08c0f37b2",
+      "comment": "",
+      "command": "click",
+      "target": "name=transportadora",
+      "targets": [
+        ["name=transportadora", "name"],
+        ["css=input[name=\"transportadora\"]", "css"],
+        ["css=.col-sm-4 > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='transportadora']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/form/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1ea645e-04eb-490f-860c-8a328eef64b3",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/form/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "97a31ba1-39f0-44aa-8a52-a0923bfc5a11",
+    "name": "ConsultarCompras",
+    "commands": [{
+      "id": "a882ec4b-0668-4361-822f-c3b589819d06",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "139d4199-9f09-41be-904c-2c74ecdbe3d5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c50bbad-b408-4e94-9fa0-7d6441a408a5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'login.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acfd81e4-ca4b-40ec-a2aa-7e14f193cb4b",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "945d0b46-82d5-4e24-894c-4c7299f7b2fa",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "a@a.com"
+    }, {
+      "id": "4c0f59ad-371f-4eba-9c0c-2606e91cbec4",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=.login-form input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "a"
+    }, {
+      "id": "8d276aae-2a41-4434-a3d3-40ef17005dc1",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(3)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33a693eb-0451-46c6-9d29-58961122317e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Eduardo",
+      "targets": [
+        ["linkText=Eduardo", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Eduardo')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'conta.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d89fa293-d23e-4f2f-bdd7-93fde0a98d4b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Meus pedidos",
+      "targets": [
+        ["linkText=Meus pedidos", "linkText"],
+        ["css=li.pedido > a", "css"],
+        ["css=.pedido > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Meus pedidos')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div[2]/div/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'pedidos.php')]", "xpath:href"],
+        ["xpath=//nav/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "59a42b5a-98d1-482a-99e0-cdece9cecae7",
+    "name": "AlterarCompra",
+    "commands": [{
+      "id": "f6e80a47-cd08-4279-a79c-a71347efdc13",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3ef82ff8-b1d4-43b9-8774-4d752b14fa6d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "459f9bfc-dc41-473c-acc9-636a74563699",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'login.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a53f86e-09b1-4c1d-8a6e-010498960258",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81623267-b20a-4d8f-9d1a-1f00cffbf4aa",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "a@a.com"
+    }, {
+      "id": "3b572761-d945-4d81-8ef4-d93974f38593",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=.login-form input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "a"
+    }, {
+      "id": "ebabe87d-cc6b-4059-8315-00ffdea14e04",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(3)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "821751a6-82b8-441f-9043-e7dee103aa5e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Eduardo",
+      "targets": [
+        ["linkText=Eduardo", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Eduardo')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'conta.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "928b1d5d-e381-4ed6-bc3b-c310d20c0474",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Meus pedidos",
+      "targets": [
+        ["linkText=Meus pedidos", "linkText"],
+        ["css=li.pedido > a", "css"],
+        ["css=.pedido > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Meus pedidos')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div[2]/div/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'pedidos.php')]", "xpath:href"],
+        ["xpath=//nav/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afcc0426-ac75-472c-9264-9f95c520f52f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Ver Detalhes",
+      "targets": [
+        ["linkText=Ver Detalhes", "linkText"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Ver Detalhes')]", "xpath:link"],
+        ["xpath=//a[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='cart_items']/div/div/table/thead/tr[2]/td[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'detalhesPedido.php?id=31')]", "xpath:href"],
+        ["xpath=//td[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "804583f5-146a-4e9f-8b2c-3e79d2c5b1cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(11)",
+      "targets": [
+        ["css=input:nth-child(11)", "css:finder"],
+        ["xpath=(//input[@name='transportadora'])[2]", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "53977a35-c14b-4ba2-9cf8-a926424bce2f",
+      "comment": "",
+      "command": "click",
+      "target": "name=cvv",
+      "targets": [
+        ["name=cvv", "name"],
+        ["css=input[name=\"cvv\"]", "css"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='cvv']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2671e325-e11c-4094-935b-12415b00b1c2",
+      "comment": "",
+      "command": "type",
+      "target": "name=cvv",
+      "targets": [
+        ["name=cvv", "name"],
+        ["css=input[name=\"cvv\"]", "css"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='cvv']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "08753c4c-5ca2-42b2-8d58-ce53182ef67a",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a62d6125-2185-424c-93fc-e256513c98d9",
+    "name": "ExcluirCompra",
+    "commands": [{
+      "id": "ec551cc6-63de-4d6e-ba52-704a1d7c1729",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Livraria/Codigo/view/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b2c3524-cdae-4be5-ac8b-d17656a065f5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1301x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3083ac93-307f-46e1-9102-88e83132078b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'login.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed0530fb-0099-46c9-a774-d4efd5e220e1",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4e26766-aea4-4de8-ad48-3b2bfdeadf77",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input[name=\"email\"]", "css"],
+        ["css=.login-form input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "a@a.com"
+    }, {
+      "id": "50684bd4-6c31-4700-9607-a4a6a4e07560",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input[name=\"password\"]", "css"],
+        ["css=.login-form input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "a"
+    }, {
+      "id": "e81c5741-f11d-490c-bc36-1fdfee4101ef",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-default",
+      "targets": [
+        ["css=button.btn.btn-default", "css"],
+        ["css=.btn:nth-child(3)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c3d4a9a-3f54-4d16-9a3b-78fb931a2421",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Eduardo",
+      "targets": [
+        ["linkText=Eduardo", "linkText"],
+        ["css=li > a", "css"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Eduardo')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/div/div[2]/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'conta.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34e924d7-6a57-4b2f-9bab-fb3b40828aae",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Meus pedidos",
+      "targets": [
+        ["linkText=Meus pedidos", "linkText"],
+        ["css=li.pedido > a", "css"],
+        ["css=.pedido > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Meus pedidos')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div[2]/div/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'pedidos.php')]", "xpath:href"],
+        ["xpath=//nav/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d48fdec-2bf6-4a90-9941-463d4ee2b95e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Ver Detalhes",
+      "targets": [
+        ["linkText=Ver Detalhes", "linkText"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Ver Detalhes')]", "xpath:link"],
+        ["xpath=//a[@type='submit']", "xpath:attributes"],
+        ["xpath=//section[@id='cart_items']/div/div/table/thead/tr[2]/td[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'detalhesPedido.php?id=31')]", "xpath:href"],
+        ["xpath=//td[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21026089-8003-419c-a41b-6fd7f23ab46c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Excluir pedido",
+      "targets": [
+        ["linkText=Excluir pedido", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Excluir pedido')]", "xpath:link"],
+        ["xpath=//section[@id='form']/div/div/div/div/form/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../controller/C_Excluir_Compra.php?id=31')]", "xpath:href"],
+        ["xpath=//form/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "3778f9ce-1518-4cbe-bf5f-e9b587b3fece",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c61fd972-7834-4ab0-bfc7-184aa0fe1cb1"]
+  }],
+  "urls": ["http://localhost/", "http://localhost/Livraria/Codigo/view/index.php"],
+  "plugins": []
+}
